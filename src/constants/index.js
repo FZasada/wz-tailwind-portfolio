@@ -8,9 +8,9 @@ my focus is always on blending functionality with aesthetics to create designs t
 export const PROJECTS = [
     {
         id: 1,
-        logo: `src/assets/projects/media_jungle/media_jungle.png`,
-        img: `src/assets/projects/media_jungle/banner.png`,
-        banner2: `src/assets/projects/media_jungle/banner2.png`,
+        logo: `/src/assets/projects/media_jungle/media_jungle.png`,
+        img: `/src/assets/projects/media_jungle/banner.png`,
+        banner2: `/src/assets/projects/media_jungle/banner2.png`,
         title: "Mediajungle",
         subtitle: "Internship project",
         shortDescription: "During my study I made an internship where I worked on the redesign of the Mediajungle website.",
@@ -25,9 +25,9 @@ export const PROJECTS = [
     },
     {
         id: 2,
-        logo: `src/assets/projects/mark/mark.png`,
-        img: `src/assets/projects/mark/banner.png`,
-        banner2: `src/assets/projects/mark/banner2.png`,
+        logo: `/src/assets/projects/mark/mark.png`,
+        img: `/src/assets/projects/mark/banner.png`,
+        banner2: `/src/assets/projects/mark/banner2.png`,
         title: "MARK",
         subtitle: "Concept",
         shortDescription: "MARK is a conceptual web-design project focused on creating a modern platform for paid online surveys.",
@@ -42,9 +42,9 @@ export const PROJECTS = [
     },
     {
         id: 3,
-        logo: `src/assets/projects/quizzy/quizzy.png`,
-        img: `src/assets/projects/quizzy/banner.png`,
-        banner2: `src/assets/projects/quizzy/banner2.png`,
+        logo: `/src/assets/projects/quizzy/quizzy.png`,
+        img: `/src/assets/projects/quizzy/banner.png`,
+        banner2: `/src/assets/projects/quizzy/banner2.png`,
         title: "Quizzy",
         subtitle: "",
         shortDescription: "Quizzy is an interactive platform created to enhance communication and teamwork among students through game-based learning.",

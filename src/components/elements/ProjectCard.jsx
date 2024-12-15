@@ -4,10 +4,16 @@ import PropTypes from 'prop-types';
 const ProjectCard = ({ project }) => {
     return (
         <Link to={`/project/${project.id}`}>
-            <div className='rounded-xl lg:h-72' style={{backgroundColor: project.color}}>
-                <img className='scale-75' src={project.logo} alt="project" width={project.imgSize[0]} height={project.imgSize[1]} id="project-img" />
+            <div className='rounded-xl lg:h-72 group hover:cursor-pointer' style={{backgroundColor: project.color}}>
+                <img 
+                    className='scale-75 transition-transform duration-300 ease-in-out group-hover:scale-90' 
+                    src={project.logo} 
+                    alt="project" 
+                    width={project.imgSize[0]} 
+                    height={project.imgSize[1]} 
+                    id="project-img" 
+                />
             </div>
-
             <div className='my-4'>
                 <h5 className='text-primary font-bold'>{project.tags.join(' / ')}</h5>
                 <h4>{project.title}</h4>

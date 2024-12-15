@@ -7,7 +7,9 @@ export default {
   theme: {
     colors: {
       primary: "#EC234F",
-      white: "#fff"
+      black: "#000",
+      white: "#fff",
+      gray: "#808080"
     },
   },
   plugins: [],
