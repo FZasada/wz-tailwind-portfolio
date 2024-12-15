@@ -1,3 +1,16 @@
+import mediaJungleLogo from '../assets/projects/media_jungle/media_jungle.png'
+import mediaJungleBanner from '../assets/projects/media_jungle/banner.png';
+import mediaJungleBanner2 from '../assets/projects/media_jungle/banner2.png';
+
+import markLogo from '../assets/projects/mark/mark.png';
+import markBanner from '../assets/projects/mark/banner.png';
+import markBanner2 from '../assets/projects/mark/banner2.png';
+
+import quizzyLogo from '../assets/projects/quizzy/quizzy.png';
+import quizzyBanner from '../assets/projects/quizzy/banner.png';
+import quizzyBanner2 from '../assets/projects/quizzy/banner2.png';
+
+
 export const HERO_CONTENT = `I’m a passionate UX/UI Designer</span> who crafts engaging and intuitive digital experiences.`
 
 export const WHATDOIDO = `As a UX/UI designer, I craft intuitive and visually compelling 
@@ -8,9 +21,9 @@ my focus is always on blending functionality with aesthetics to create designs t
 export const PROJECTS = [
     {
         id: 1,
-        logo: `/src/assets/projects/media_jungle/media_jungle.png`,
-        img: `/src/assets/projects/media_jungle/banner.png`,
-        banner2: `/src/assets/projects/media_jungle/banner2.png`,
+        logo: mediaJungleLogo,
+        img: mediaJungleBanner,
+        banner2: mediaJungleBanner2,
         title: "Mediajungle",
         subtitle: "Internship project",
         shortDescription: "During my study I made an internship where I worked on the redesign of the Mediajungle website.",
@@ -21,43 +34,43 @@ export const PROJECTS = [
         tags: ["Website Design"],
         color: "#DBF6D8",
         imgSize: [280, 288],
-        webUrl: `/project/${0}`
+        webUrl: '/project/0'
     },
     {
         id: 2,
-        logo: `/src/assets/projects/mark/mark.png`,
-        img: `/src/assets/projects/mark/banner.png`,
-        banner2: `/src/assets/projects/mark/banner2.png`,
+        logo: markLogo,
+        img: markBanner,
+        banner2: markBanner2,
         title: "MARK",
         subtitle: "Concept",
         shortDescription: "MARK is a conceptual web-design project focused on creating a modern platform for paid online surveys.",
         introduction: "The MARK project was a concept I developed as part of a design challenge during a job interview process. Given just two days to redesign an existing website that offered paid online surveys, the goal was to deliver a modern, visually appealing, and highly functional site that would improve both user experience and brand appeal. This project tested my ability to work under pressure, quickly generate ideas, and deliver a comprehensive design solution, complete with custom graphics and icons. Although the company ultimately did not use my design, this project demonstrates my ability to work on tight deadlines and create polished, professional results. To maintain discretion, I’ve renamed the project to MARK for my portfolio.",
         problemOverview: "The original website I was tasked with redesigning had several key issues that needed to be addressed. It had an outdated layout, lacked visual hierarchy, and struggled to engage users effectively. The website’s primary function was to inform users about paid online surveys and convert visitors into participants, but its cluttered design and poor use of negative space made navigation difficult. Important information, such as survey details and sign-up instructions, was not easily accessible, leading to user frustration. Additionally, the visual style did not reflect a modern, professional brand image, which could deter potential users from trusting the service. The challenge was to overhaul the design, improve usability, and create a fresh, appealing look that would attract users while maintaining a professional tone.",
         designProcess: "Given the time constraints of this challenge, I began the design process by thoroughly analyzing the original website’s weaknesses, focusing on user experience and visual presentation. My first step was to create a simplified layout that would allow users to navigate the site with ease. I introduced more negative space to reduce clutter and make key information stand out, such as the sign-up process and survey offerings.\n\nAfter sketching initial wireframes, I moved on to creating a clean, modern interface with a focus on readability and user engagement. I selected a blue and orange color scheme, balancing professionalism with energy and approachability, while ensuring strong visual contrast for accessibility. I also designed custom icons and graphics to match the overall aesthetic and enhance the user journey. Throughout the process, I prioritized intuitive navigation, ensuring that users could easily understand how to register, find surveys, and participate without confusion.",
-        result: "The final result of the MARK redesign was a sleek, modern website concept that effectively addressed the usability and visual challenges of the original design. By incorporating a minimalist layout with ample negative space, I was able to create a clean, easy-to-navigate interface that guides users smoothly through the site. The blue and orange color palette, paired with custom-designed icons and graphics, brought a fresh, contemporary feel that aligned with the goals of attracting and engaging users interested in online surveys.\n\nAlthough the design was not ultimately implemented by the company, the project succeeded in demonstrating my ability to deliver high-quality, professional work within a short timeframe. The improved layout, modern design, and intuitive navigation structure reflect my strengths in user experience design and my ability to create visually compelling digital products. MARK stands as a strong example of my problem-solving skills, creativity, and capacity to work efficiently under pressure.",
+        result: "The final result of the MARK redesign was a sleek, modern website concept that effectively addressed the usability and visual challenges of the original design. By incorporating a minimalist layout with ample negative space, I was able to create a clean, easy-to-navigate interface that guides users smoothly through the site. The blue and orange color palette, paired with custom-designed icons and graphics, brought a fresh, contemporary feel that aligned with the goals of attracting and engaging users interested in online surveys.\n\nAlthough the design was not ultimately implemented by the company, the project succeeded in demonstrating my ability to deliver high-quality, professional work within a short timeframe. The improved layout, modern design, and intuitive navigation structure reflect my strengths in user experience design and my ability to create visually compelling digital products. MARK stands as a strong example of my problem-solving skills, creativity, and capacity to work efficiently under pressure.",
         tags: ["Website Design"],
         color: "#D8F1F6",
         imgSize: [280, 267],
-        webUrl: `/project/${1}`
+        webUrl: '/project/1'
     },
     {
         id: 3,
-        logo: `/src/assets/projects/quizzy/quizzy.png`,
-        img: `/src/assets/projects/quizzy/banner.png`,
-        banner2: `/src/assets/projects/quizzy/banner2.png`,
+        logo: quizzyLogo,
+        img: quizzyBanner,
+        banner2: quizzyBanner2,
         title: "Quizzy",
         subtitle: "",
-        shortDescription: "Quizzy is an interactive platform created to enhance communication and teamwork among students through game-based learning.",
-        introduction: "For my thesis project as part of my study, I chose to focus on addressing the challenges faced by students in the Internationale Schakelklas (ISK), which translates to International Transition Class. This is a type of school in the Netherlands designed to help students who do not yet speak Dutch, particularly young refugees, integrate into the Dutch educational system. Drawing from my personal experience as a former ISK student, I understood firsthand how difficult it can be to feel included in a group when language is a barrier. This led me to develop a tool aimed at improving communication, group dynamics, and the use of the Dutch language within these classes. Through my research and design, I sought to create a solution that fosters teamwork and inclusivity, helping students overcome language challenges while building social connections.",
-        designProcess: "To tackle this issue, I began by researching different group dynamics and communication challenges in multicultural classrooms. I analyzed how students currently interact, focusing on how language barriers and cultural differences affected teamwork. This research informed the creation of 'Quizzy', a gamified learning tool designed to engage students in team-building activities while encouraging students to communicate in Dutch.\n\nThe design process involved developing an interactive platform that integrates quizzes and game cards. The quizzes encourage students to work together in Dutch, while the game cards introduce playful challenges to enhance communication. Gamification elements like points, rewards, and role-playing were included to motivate students to participate actively. I worked closely with teachers and UX experts to refine the design, ensuring it was both fun and educational. Regular feedback from ISK educators helped me iterate on the design, making sure it addressed the needs of both students and teachers. Additionally, I conducted usability testing to ensure that the platform was intuitive and accessible for the teachers who use the platform during the game.\n\nAn important part of Quizzy’s design is the role of the teacher, or Quizzymaster, who moderates the game. The Quizzymaster ensures that students work together, supporting their progression through different stages of team-building while maintaining a balanced and inclusive classroom dynamic.",
-        problemOverview: "Many ISK students experience difficulties beyond the classroom, trauma from fleeing conflict, cultural adjustments, and language barriers. These challenges often result in feelings of alienation, with students forming groups based on shared languages and backgrounds, which limits interaction across the class. This division, especially the lack of Dutch practice, hinders both their social integration and academic progress.\n\nIn classrooms, students often avoid speaking Dutch, preferring to communicate in their native languages, which leads to exclusion of others, bullying, and weakened group dynamics. This makes it difficult for ISK students to feel connected and supported, impacting their well-being and learning experience.",
-        result: "By incorporating teambuilding activities and gamified learning experiences, Quizzy helps students break out of their language-based friend groups, reduces conflicts, and creates a more unified and supportive classroom environment. It helps bridge the gap between students who may otherwise struggle to connect due to language barriers, encouraging them to communicate in Dutch and develop stronger social bonds.\n\nBy engaging students in group discussions and collaborative problem-solving, Quizzy helps students improve their Dutch language skills in a fun, non-intimidating way. The game includes two sets of cards, support cards and action cards. Support cards (Search, Wisdom, and Joker) provide versatile tools that aid in team strategy and communication. Action cards (Block, Target, and Shield) focus on direct interactions between teams, influencing the competitive dynamics of the game. These cards are designed with clear visual distinctions to ensure ease of use and understanding.",
-        tags: ["Website Design", "Graphic Design"],
-        color: "#D9D8F6",
-        imgSize: [280, 252],
-        webUrl: `/project/${3}`
+        shortDescription: "Quizzy is an interactive platform created to enhance communication and teamwork among students through game-based learning.",
+        introduction: "For my thesis project as part of my study, I chose to focus on addressing the challenges faced by students in the Internationale Schakelklas (ISK), which translates to International Transition Class. This is a type of school in the Netherlands designed to help students who do not yet speak Dutch, particularly young refugees, integrate into the Dutch educational system. Drawing from my personal experience as a former ISK student, I understood firsthand how difficult it can be to feel included in a group when language is a barrier. This led me to develop a tool aimed at improving communication, group dynamics, and the use of the Dutch language within these classes. Through my research and design, I sought to create a solution that fosters teamwork and inclusivity, helping students overcome language challenges while building social connections.",
+        designProcess: "To tackle this issue, I began by researching different group dynamics and communication challenges in multicultural classrooms. I analyzed how students currently interact, focusing on their social behavior, communication patterns, and the obstacles they face when engaging with each other. In addition to speaking with teachers and administrators, I also conducted interviews with students to get insights into their personal experiences and what would make them feel more included.\n\nFrom these insights, I developed the concept for Quizzy—an interactive platform that integrates gamified elements to enhance communication and teamwork skills among students. The platform allows students to answer questions in Dutch as part of a quiz, but the questions themselves are related to the specific school subjects they are studying. The app is designed to be simple and intuitive, ensuring that students of all language levels can participate and interact in meaningful ways. In this way, Quizzy encourages both language learning and social interaction, making the classroom a more inclusive and engaging environment.",
+        result: "Quizzy proved to be a successful solution for improving communication and team dynamics in the ISK classroom. Students who initially struggled with Dutch now had a fun, interactive way to practice the language while collaborating with their peers. Teachers reported an increase in student engagement, with many students becoming more confident in their language abilities and willing to participate in group activities.\n\nThe app was designed to be user-friendly and adaptable, catering to the needs of a diverse group of students. Its gamified elements kept the learning process exciting and motivating, while also promoting teamwork, which was especially important for students who might have otherwise felt isolated. By combining language learning with social interaction, Quizzy achieved its goal of creating an inclusive, dynamic classroom environment.",
+        tags: ["UX Design", "Educational App"],
+        color: "#F0F5E1",
+        imgSize: [280, 295],
+        webUrl: '/project/2'
     },
-]
+];
+
 
 
 export const EMAIL = "contact@wiktoriazemla.com"

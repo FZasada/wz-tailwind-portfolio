@@ -57,7 +57,7 @@ const Hero = () => {
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 1, delay: 0.4 }}
               src={hero}
-              alt="Florian Zasada"
+              alt="Wiktoria Zemla"
             />
           </div>
         </div>

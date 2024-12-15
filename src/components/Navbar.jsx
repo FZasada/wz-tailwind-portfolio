@@ -1,28 +1,42 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 
 import ContactButton from './elements/ContactButton';
 
 import logo from '../assets/logo.png';
-import burgerMenu from '../assets/icons/burger_menu.png'
-import enveloper_r from '../assets/icons/enveloper_r.png'
+import burgerMenu from '../assets/icons/burger_menu.png';
+import enveloper_r from '../assets/icons/enveloper_r.png';
 import { EMAIL } from '../constants';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    const toggleMenu = () => {
-        setIsMenuOpen(!isMenuOpen);
-    };
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
-    const closeMenu = () => {
-        setIsMenuOpen(false);
-    };
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
 
-    const contact = () => {
-        console.log("Contacting ", EMAIL);
-        window.location.href = `mailto:${EMAIL}`;
+  const contact = () => {
+    console.log("Contacting ", EMAIL);
+    window.location.href = `mailto:${EMAIL}`;
+  };
+
+  useEffect(() => {
+    // Disable scrolling when menu is open
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto'; // Enable scrolling when menu is closed
     }
+
+    // Cleanup to ensure we reset the style when the component is unmounted
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [isMenuOpen]);
 
   return (
     <nav className="mb-12 lg:mb-4 items-center py-3 max-w-screen-xl flex flex-wrap gap-12 justify-between mx-auto">
@@ -31,7 +45,7 @@ const Navbar = () => {
       </div>
 
       {/* Burger menu button (only visible on small screens) */}
-      <div className='space-x-2'>
+      <div className="space-x-2">
         <button 
           type="button" 
           className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" 
@@ -40,7 +54,7 @@ const Navbar = () => {
           onClick={contact}
         >
           <span className="sr-only">Contact</span>
-          <img src={enveloper_r} alt="Contact" className='w-40'/>
+          <img src={enveloper_r} alt="Contact" className="w-40" />
         </button>
         <button 
           type="button" 
@@ -50,7 +64,7 @@ const Navbar = () => {
           onClick={toggleMenu} // Toggle the menu visibility
         >
           <span className="sr-only">Open main menu</span>
-          <img src={burgerMenu} alt="Burger Menu" className='w-40' />
+          <img src={burgerMenu} alt="Burger Menu" className="w-40" />
         </button>
       </div>
 

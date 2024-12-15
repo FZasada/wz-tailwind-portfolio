@@ -1,6 +1,8 @@
 import { EMAIL } from "../../constants";
 import Button from "./Button"
 
+import envelope_w from '../../assets/icons/envelope_w.png'
+
 
 const ContactButton = () => {
     const contact = () => {
@@ -9,7 +11,7 @@ const ContactButton = () => {
     }
 
     return (
-        <Button text="Contact me" icon={'/src/assets/icons/envelope_w.png'} onClick={contact}/>
+        <Button text="Contact me" icon={envelope_w} onClick={contact}/>
     )
 }
 

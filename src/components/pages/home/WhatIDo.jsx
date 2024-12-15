@@ -2,6 +2,10 @@ import { WHATDOIDO } from "../../../constants"
 
 import { motion } from "motion/react"
 
+import iconWebDesign from '../../../assets/icons/web_design.png'
+import iconAppDesign from '../../../assets/icons/app_design.png'
+import iconGraphicDesign from '../../../assets/icons/graphic_design.png'
+
 const iconVariants = (duration) => ({
     initial: { x: -10},
     animate: {
@@ -30,7 +34,7 @@ const WhatIDo = () => {
                         <div className="flex w-auto justify-center">
                             <img 
                                 className="w-20 h-auto object-contain"
-                                src="src/assets/icons/web_design.png" alt="Web design" />
+                                src={iconWebDesign} alt="Web design" />
                         </div>
                         <div className="bg-gray-300 p-6 lg:text-start text-xl font-bold">Website Design</div>
                     </motion.div>
@@ -44,7 +48,7 @@ const WhatIDo = () => {
                         <div className="flex w-auto justify-center">
                             <img 
                                 className="w-20 h-20 object-contain"
-                                src="src/assets/icons/app_design.png" alt="Web design" />
+                                src={iconAppDesign} alt="Web design" />
                         </div>
                         <div className="bg-gray-500 p-6 lg:text-start text-xl font-bold">App Design</div>
                     </motion.div>
@@ -58,7 +62,7 @@ const WhatIDo = () => {
                         <div className="flex w-auto justify-center">
                             <img 
                                 className="w-20 h-auto object-contain"
-                                src="src/assets/icons/graphic_design.png" alt="Web design" />
+                                src={iconGraphicDesign} alt="Web design" />
                         </div>
                         <div className="bg-gray-700 p-6 lg:text-start text-xl font-bold">Graphic Design</div>
                     </motion.div>
