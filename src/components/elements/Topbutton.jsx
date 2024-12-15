@@ -2,6 +2,8 @@ import PropTypes from "prop-types";
 
 import { motion } from "motion/react";
 
+import icon_arrowup from '../../assets/icons/arrow_up.png'
+
 const Topbutton = ({ showTopUp, scrollUp }) => {
     return (
         <motion.button
@@ -14,7 +16,7 @@ const Topbutton = ({ showTopUp, scrollUp }) => {
         >
             <img
                 className="w-4"
-                src={`/src/assets/icons/arrow_up.png`}
+                src={icon_arrowup}
                 alt="arrow"
             />
         </motion.button>

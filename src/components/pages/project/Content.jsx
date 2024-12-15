@@ -14,22 +14,22 @@ const Content = ({ project }) => {
             <h2 className='text-3xl font-bold py-6'>Introduction</h2>
             <p>{project.introduction}</p>
         </motion.div>
-        <motion.div
+        {project.problemOverview && (<motion.div
             whileInView={{x: 0, opacity: 1}}
             initial={{x: -100, opacity: 0}}
             transition={{duration: 0.8}}
         >
             <h2 className='text-3xl font-bold py-6'>Problem overview</h2>
             <p>{project.problemOverview}</p>
-        </motion.div>
-        <motion.div
+        </motion.div>)}
+        {project.designProcess && (<motion.div
             whileInView={{x: 0, opacity: 1}}
             initial={{x: -100, opacity: 0}}
             transition={{duration: 0.8}}
         >
             <h2 className='text-3xl font-bold py-6'>Design process</h2>
             <p>{project.designProcess}</p>
-        </motion.div>
+        </motion.div>)}
         <motion.div 
             whileInView={{x: 0, opacity: 1}}
             initial={{x: -100, opacity: 0}}
@@ -40,14 +40,14 @@ const Content = ({ project }) => {
             alt="Banner"
             />
         </motion.div>
-        <motion.div
+        {project.result && (<motion.div
             whileInView={{x: 0, opacity: 1}}
             initial={{x: -100, opacity: 0}}
             transition={{duration: 0.8}}
         >
-            <h2 className='text-3xl font-bold'>Result</h2>
+            <h2 className='text-3xl font-bold py-6'>Result</h2>
             <p>{project.result}</p>
-        </motion.div>
+        </motion.div>)}
         <motion.div
             whileInView={{x: 0, opacity: 1}}
             initial={{x: -100, opacity: 0}}
