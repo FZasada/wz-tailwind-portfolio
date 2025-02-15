@@ -39,9 +39,9 @@ const Navbar = () => {
   }, [isMenuOpen]);
 
   return (
-    <nav className="mb-12 lg:mb-4 items-center py-3 max-w-screen-xl flex flex-wrap gap-12 justify-between mx-auto">
+    <nav className="items-center py-6 max-w-screen-xl flex flex-wrap gap-12 justify-between mx-auto">
       <div className="flex flex-shrink-0 items-center">
-        <img className="w-10 lg:w-16" src={logo} alt="FZ" />
+        <img className="w-[56px] h-[46px]" src={logo} alt="FZ" />
       </div>
 
       {/* Burger menu button (only visible on small screens) */}
@@ -90,8 +90,8 @@ const Navbar = () => {
             to="/"
             className={({ isActive }) =>
               isActive
-                ? 'text-white font-extrabold border-b-2 border-b-white'
-                : 'text-white'
+                ? 'text-white font-extrabold border-b-2 border-b-white text-[18px]'
+                : 'text-white text-[18px]'
             }
           >
             Home
@@ -101,19 +101,19 @@ const Navbar = () => {
             to="/portfolio"
             className={({ isActive }) =>
               isActive
-                ? 'text-white font-extrabold border-b-2 border-b-white'
-                : 'text-white'
+                ? 'text-white font-extrabold border-b-2 border-b-white text-[18px]'
+                : 'text-white text-[18px]'
             }
           >
             Portfolio
           </NavLink>
           <NavLink
             onClick={closeMenu} // Close the menu when clicked
-            to="/about"
+            to="/aboutme"
             className={({ isActive }) =>
               isActive
-                ? 'text-white font-extrabold border-b-2 border-b-white'
-                : 'text-white'
+                ? 'text-white font-extrabold border-b-2 border-b-white text-base'
+                : 'text-white text-[18px]'
             }
           >
             About me
@@ -128,13 +128,13 @@ const Navbar = () => {
 
       {/* Desktop/Tablet Navigation Menu (visible on medium and larger screens) */}
       <div className="hidden md:flex flex-1 justify-between items-center">
-        <ul className="flex flex-row gap-8 text-xl">
+        <ul className="flex flex-row gap-[38px] text-xl">
           <NavLink
             to="/"
             className={({ isActive }) =>
               isActive
-                ? 'text-primary border-b-2 border-b-primary transition-all duration-200 ease-in-out font-extrabold'
-                : 'text-gray-700 hover:text-primary transition-all duration-200 ease-in-out'
+                ? 'text-primary border-b-2 border-b-primary transition-all duration-200 ease-in-out font-extrabold text-[18px]'
+                : 'text-gray-700 hover:text-primary transition-all duration-200 ease-in-out text-[18px]'
             }
           >
             Home
@@ -143,18 +143,18 @@ const Navbar = () => {
             to="/portfolio"
             className={({ isActive }) =>
               isActive
-                ? 'text-primary border-b-2 border-b-primary transition-all duration-200 ease-in-out font-extrabold'
-                : 'text-gray-700 hover:text-primary transition-all duration-200 ease-in-out'
+                ? 'text-primary border-b-2 border-b-primary transition-all duration-200 ease-in-out font-extrabold text-[18px]'
+                : 'text-gray-700 hover:text-primary transition-all duration-200 ease-in-out text-[18px]'
             }
           >
             Portfolio
           </NavLink>
           <NavLink
-            to="/about"
+            to="/aboutme"
             className={({ isActive }) =>
               isActive
-                ? 'text-primary border-b-2 border-b-primary transition-all duration-200 ease-in-out font-extrabold'
-                : 'text-gray-700 hover:text-primary transition-all duration-200 ease-in-out'
+                ? 'text-primary border-b-2 border-b-primary transition-all duration-200 ease-in-out font-extrabold text-[18px]'
+                : 'text-gray-700 hover:text-primary transition-all duration-200 ease-in-out text-[18px]'
             }
           >
             About me

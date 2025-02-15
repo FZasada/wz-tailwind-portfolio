@@ -6,14 +6,15 @@ const Button = ({ text, icon = null, variant = "primary", onClick=null }) => {
       className={`
         ${variant === "primary" ? "hover:bg-[#A71B3A]" : "hover:bg-primary hover:text-white"}
         transition-all duration-200 ease-in-out
-        flex items-center rounded-xl px-3 py-3 text-xl gap-2
+        flex items-center rounded-[8px] p-[16px] gap-[12px]
+        h-[53px]
         ${variant === "primary" ? "bg-primary text-white" : "bg-white text-primary border border-primary border-2"}
       `}
       onClick={onClick}
     >
-      <p className="font-medium">{text}</p>
+      <p className="text-[18px] font-medium">{text}</p>
       {icon && 
-        <div className="m-2 w-6">
+        <div className="w-[18px]">
           <img src={icon} alt="button icon" />
         </div>
       }

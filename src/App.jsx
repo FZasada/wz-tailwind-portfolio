@@ -12,6 +12,8 @@ import Contact from './components/Contact';
 
 
 import { useEffect, useRef, useState } from 'react';
+import MyProjects from './screens/MyProjects';
+import Aboutme from './screens/Aboutme';
 
 
 const App = () => {
@@ -51,6 +53,8 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/project/:id" element={<Project />} />
+            <Route path="/portfolio" element={<MyProjects />} />
+            <Route path="/aboutme" element={<Aboutme />} />
             <Route path="/404" element={<PageNotFound />} />
             <Route path="*" element={<Navigate to={"/404"} replace />} />
           </Routes>

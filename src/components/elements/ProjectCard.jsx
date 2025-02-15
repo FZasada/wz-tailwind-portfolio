@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 const ProjectCard = ({ project }) => {
     return (
         <Link to={`/project/${project.id}`}>
-            <div className='rounded-xl lg:h-72 group hover:cursor-pointer' style={{backgroundColor: project.color}}>
+            <div className='rounded-xl lg:h-72 group hover:cursor-pointer content-center' style={{backgroundColor: project.color}}>
                 <img 
-                    className='scale-75 transition-transform duration-300 ease-in-out group-hover:scale-90' 
+                    className='scale-75 transition-transform duration-600 ease-in-out group-hover:scale-90' 
                     src={project.logo} 
                     alt="project" 
                     width={project.imgSize[0]} 

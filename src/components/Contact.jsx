@@ -12,7 +12,7 @@ const Contact = () => {
         whileInView={{y: 0, opacity: 1}}
         initial={{y: 40, opacity: 0}}
         transition={{duration: 0.3}}
-        className='text-2xl lg:text-5xl font-bold mb-8'>{EMAIL}</motion.h1>
+        className='text-[48px] font-bold mb-[48px]'>{EMAIL}</motion.h1>
       <ContactButton />
     </div>
   )

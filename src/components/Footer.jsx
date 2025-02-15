@@ -4,8 +4,8 @@ import { FaLinkedinIn } from 'react-icons/fa';
 
 const Footer = () => {
   return (
-    <footer className="flex justify-between py-8 text-base lg:text-xl">
-      <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
+    <footer className="flex justify-between py-[62px] text-base lg:text-xl">
+      <div className="flex flex-col lg:flex-row gap-[38px]">
         <NavLink
           to="/"
           className={({ isActive }) =>
