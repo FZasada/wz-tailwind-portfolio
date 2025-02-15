@@ -8,7 +8,7 @@ import FavTools from '../components/pages/home/FavTools';
 
 const Home = () => {
   return (
-    <div className='flex flex-col gap-28 lg:gap-64'>
+    <div className='flex flex-col gap-[220px]'>
       <Hero />
       <WhatIDo />
       <Projects title={"My latest work"} projects={PROJECTS} />
