@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import {motion, useScroll} from 'motion/react'
+import {AnimatePresence, motion, useScroll} from 'motion/react'
 
 import { WORK, EDUCATION } from '../constants/index';
 import ContactButton from '../components/elements/ContactButton';
@@ -45,7 +45,32 @@ function Aboutme() {
       >
         <div className="flex flex-col lg:flex-row gap-[125px]">
           <div className='flex flex-col justify-end'>
-            <h1 className="mb-[12px] text-[72px] font-bold">{hiMsg[currentIndex]}<span className='text-primary'>!</span></h1>
+            <div className='mb-[24px]' style={{ height: '70px', position: 'relative', overflow: 'hidden' }}>
+              <AnimatePresence initial={false}>
+                <motion.div
+                  key={hiMsg[currentIndex]}
+                  initial={{ y: '-100%' }}
+                  animate={{ y: '0%' }}
+                  exit={{ y: '100%' }}
+                  transition={{ 
+                    y: { type: "tween", duration: 0.5, ease: "easeInOut" }
+                  }}
+                  style={{ 
+                    position: 'absolute',
+                    width: '100%',
+                    height: '100%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'flex-start'
+                  }}
+                >
+                  <h1 className="mb-[12px] text-[72px] font-bold">
+                    {hiMsg[currentIndex]}<span className='text-primary'>!</span>
+                  </h1>
+                </motion.div>
+              </AnimatePresence>
+            </div>
+
             <p className="mb-[64px]" style={{fontSize: '18px', maxWidth: '28.75rem'}}>I’m Wiktoria Zemla, a recent graduate with a degree 
 in Communication and Multimedia Design, specializing 
 in UX/UI design. I was born in Poland, then moved to 
