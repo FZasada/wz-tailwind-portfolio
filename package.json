@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://wiktoriazemla.com/wz-tailwind-portfolio",
+  "homepage": "https://wiktoriazemla.com",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
