@@ -65,7 +65,6 @@ more and taking on new challenges.</p>
         whileInView={{y: 0, opacity: 1}}
         initial={{y: 40, opacity: 0}}
         transition={{duration: 0.3}}
-        viewport={{ amount: 0.5, once: true }}
         className="flex flex-col gap-[72px]">
         <h2 className='my-8 text-center text-[48px] font-bold'>Languages I speak</h2>
         <div className='flex flex-col lg:flex-row justify-center items-center gap-[96px] w-full'>
