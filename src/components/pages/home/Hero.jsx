@@ -34,16 +34,12 @@ const Hero = () => {
             </div>
           </div>
         </div>
-        <div className="w-full lg:w-1/2 lg:p-8">
-          <div className="flex justify-center">
-            <img
-              src={hero}
-              alt="Wiktoria Zemla"
-              className="max-w-full"
-              style={{ width: '477px', height: 'auto' }}
-            />
-          </div>
-        </div>
+        <img
+          src={hero}
+          alt="Wiktoria Zemla"
+          className="max-w-full"
+          style={{ width: '477px', height: 'auto' }}
+        />
       </div>
     </div>
   );

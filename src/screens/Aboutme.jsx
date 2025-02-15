@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import {motion, useScroll} from 'motion/react'
 
 import { WORK, EDUCATION } from '../constants/index';
@@ -15,6 +15,11 @@ import polish from '../assets/about_me/icons/pierogi.png'
 import dutch from '../assets/about_me/icons/kaas.png'
 
 function Aboutme() {
+    const { scrollYProgress } = useScroll();
+
+    const hiMsg = ["Cześć", "Hoi", "Hello", "Moin"]
+    const [currentIndex, setCurrentIndex] = useState(0);
+
     useEffect(() => {
         window.scrollTo({
             top: 0,
@@ -22,8 +27,14 @@ function Aboutme() {
             });
         }, []);
 
-
-    const { scrollYProgress } = useScroll();
+    useEffect(() => {
+      const interval = setInterval(() => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % hiMsg.length);
+      }, 3000);
+  
+      return () => clearInterval(interval);
+    }, []);
+  
 
   return (
     <div className='flex flex-col gap-[220px]'>
@@ -32,9 +43,9 @@ function Aboutme() {
           initial={{y: 40, opacity: 0}}
           transition={{duration: 0.3}}
       >
-        <div className="flex flex-col lg:flex-row gap-[125px] mt-[90px]">
+        <div className="flex flex-col lg:flex-row gap-[125px]">
           <div className='flex flex-col justify-end'>
-            <h1 className="mb-[12px] text-[72px] font-bold">Cześć<span className='text-primary'>!</span></h1>
+            <h1 className="mb-[12px] text-[72px] font-bold">{hiMsg[currentIndex]}<span className='text-primary'>!</span></h1>
             <p className="mb-[64px]" style={{fontSize: '18px', maxWidth: '28.75rem'}}>I’m Wiktoria Zemla, a recent graduate with a degree 
 in Communication and Multimedia Design, specializing 
 in UX/UI design. I was born in Poland, then moved to 
@@ -45,7 +56,7 @@ more and taking on new challenges.</p>
               <Button text={"LinkedIn profile"} variant="secondary" />
             </div>
           </div>
-          <img src={aboutme_1} alt='me' width='488'/>
+          <img src={aboutme_1} alt='me' width='515'/>
         </div>
       </motion.section>
 

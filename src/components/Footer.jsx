@@ -4,13 +4,13 @@ import { FaLinkedinIn } from 'react-icons/fa';
 
 const Footer = () => {
   return (
-    <footer className="flex justify-between py-[62px] text-base lg:text-xl">
+    <footer className="flex justify-between py-[62px] text-[18px]">
       <div className="flex flex-col lg:flex-row gap-[38px]">
         <NavLink
           to="/"
           className={({ isActive }) =>
             isActive
-              ? 'text-primary transition-all duration-200 ease-in-out font-extrabold'
+              ? 'text-primary transition-all duration-200 ease-in-out font-bold'
               : 'hover:text-primary hover:font-bold transition-all duration-200 ease-in-out'
           }
         >
@@ -20,7 +20,7 @@ const Footer = () => {
           to="/portfolio"
           className={({ isActive }) =>
             isActive
-              ? 'text-primary transition-all duration-200 ease-in-out font-extrabold'
+              ? 'text-primary transition-all duration-200 ease-in-out font-bold'
               : 'hover:text-primary hover:font-bold transition-all duration-200 ease-in-out'
           }
         >
@@ -30,7 +30,7 @@ const Footer = () => {
           to="/about"
           className={({ isActive }) =>
             isActive
-              ? 'text-primary transition-all duration-200 ease-in-out font-extrabold'
+              ? 'text-primary transition-all duration-200 ease-in-out font-bold'
               : 'hover:text-primary hover:font-bold transition-all duration-200 ease-in-out'
           }
         >

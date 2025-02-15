@@ -24,6 +24,7 @@ const Navbar = () => {
     window.location.href = `mailto:${EMAIL}`;
   };
 
+
   useEffect(() => {
     // Disable scrolling when menu is open
     if (isMenuOpen) {
@@ -39,7 +40,7 @@ const Navbar = () => {
   }, [isMenuOpen]);
 
   return (
-    <nav className="items-center py-6 max-w-screen-xl flex flex-wrap gap-12 justify-between mx-auto">
+    <nav className="items-center pt-6 mb-[70px] max-w-screen-xl flex flex-wrap gap-12 justify-between mx-auto">
       <div className="flex flex-shrink-0 items-center">
         <img className="w-[56px] h-[46px]" src={logo} alt="FZ" />
       </div>
@@ -133,7 +134,7 @@ const Navbar = () => {
             to="/"
             className={({ isActive }) =>
               isActive
-                ? 'text-primary transition-all duration-200 ease-in-out font-extrabold text-[18px]'
+                ? 'text-primary transition-all duration-200 ease-in-out font-bold text-[18px]'
                 : 'text-gray-700 hover:text-primary hover:font-bold transition-all duration-200 ease-in-out text-[18px]'
             }
           >
@@ -143,7 +144,7 @@ const Navbar = () => {
             to="/portfolio"
             className={({ isActive }) =>
               isActive
-                ? 'text-primary transition-all duration-200 ease-in-out font-extrabold text-[18px]'
+                ? 'text-primary transition-all duration-200 ease-in-out font-bold text-[18px]'
                 : 'text-gray-700 hover:text-primary hover:font-bold transition-all duration-200 ease-in-out text-[18px]'
             }
           >
@@ -153,7 +154,7 @@ const Navbar = () => {
             to="/aboutme"
             className={({ isActive }) =>
               isActive
-                ? 'text-primary transition-all duration-200 ease-in-out font-extrabold text-[18px]'
+                ? 'text-primary transition-all duration-200 ease-in-out font-bold text-[18px]'
                 : 'text-gray-700 hover:text-primary hover:font-bold transition-all duration-200 ease-in-out text-[18px]'
             }
           >
