@@ -133,8 +133,8 @@ const Navbar = () => {
             to="/"
             className={({ isActive }) =>
               isActive
-                ? 'text-primary border-b-2 border-b-primary transition-all duration-200 ease-in-out font-extrabold text-[18px]'
-                : 'text-gray-700 hover:text-primary transition-all duration-200 ease-in-out text-[18px]'
+                ? 'text-primary transition-all duration-200 ease-in-out font-extrabold text-[18px]'
+                : 'text-gray-700 hover:text-primary hover:font-bold transition-all duration-200 ease-in-out text-[18px]'
             }
           >
             Home
@@ -143,8 +143,8 @@ const Navbar = () => {
             to="/portfolio"
             className={({ isActive }) =>
               isActive
-                ? 'text-primary border-b-2 border-b-primary transition-all duration-200 ease-in-out font-extrabold text-[18px]'
-                : 'text-gray-700 hover:text-primary transition-all duration-200 ease-in-out text-[18px]'
+                ? 'text-primary transition-all duration-200 ease-in-out font-extrabold text-[18px]'
+                : 'text-gray-700 hover:text-primary hover:font-bold transition-all duration-200 ease-in-out text-[18px]'
             }
           >
             Portfolio
@@ -153,8 +153,8 @@ const Navbar = () => {
             to="/aboutme"
             className={({ isActive }) =>
               isActive
-                ? 'text-primary border-b-2 border-b-primary transition-all duration-200 ease-in-out font-extrabold text-[18px]'
-                : 'text-gray-700 hover:text-primary transition-all duration-200 ease-in-out text-[18px]'
+                ? 'text-primary transition-all duration-200 ease-in-out font-extrabold text-[18px]'
+                : 'text-gray-700 hover:text-primary hover:font-bold transition-all duration-200 ease-in-out text-[18px]'
             }
           >
             About me

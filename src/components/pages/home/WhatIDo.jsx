@@ -21,7 +21,7 @@ const WhatIDo = () => {
                                 className="w-20 h-auto object-contain"
                                 src={iconWebDesign} alt="Web design" />
                         </div>
-                        <div className="bg-gray-300 p-6 lg:text-start text-xl font-bold">Website Design</div>
+                        <div className="bg-gray-300 p-6 lg:text-start text-xl font-medium">Website Design</div>
                     </div>
                     
                     <div
@@ -32,7 +32,7 @@ const WhatIDo = () => {
                                 className="w-20 h-20 object-contain"
                                 src={iconAppDesign} alt="Web design" />
                         </div>
-                        <div className="bg-gray-500 p-6 lg:text-start text-xl font-bold">App Design</div>
+                        <div className="bg-gray-500 p-6 lg:text-start text-xl font-medium">App Design</div>
                     </div>
                    
                     <div className="flex items-center gap-4">
@@ -41,7 +41,7 @@ const WhatIDo = () => {
                                 className="w-20 h-auto object-contain"
                                 src={iconGraphicDesign} alt="Web design" />
                         </div>
-                        <div className="bg-gray-700 p-6 lg:text-start text-xl font-bold">Graphic Design</div>
+                        <div className="bg-gray-700 p-6 lg:text-start text-xl font-medium">Graphic Design</div>
                     </div>
                 </div>
             </div>

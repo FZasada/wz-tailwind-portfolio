@@ -29,8 +29,8 @@ function Aboutme() {
     <div className='flex flex-col gap-[220px]'>
       <motion.section
           whileInView={{y: 0, opacity: 1}}
-          initial={{y: 20, opacity: 0}}
-          transition={{duration: 1}}
+          initial={{y: 40, opacity: 0}}
+          transition={{duration: 0.3}}
       >
         <div className="flex flex-col lg:flex-row gap-[125px] mt-[90px]">
           <div className='flex flex-col justify-end'>
@@ -52,8 +52,8 @@ more and taking on new challenges.</p>
 
       <motion.section 
         whileInView={{y: 0, opacity: 1}}
-        initial={{y: 20, opacity: 0}}
-        transition={{duration: 1}}
+        initial={{y: 40, opacity: 0}}
+        transition={{duration: 0.3}}
         viewport={{ amount: 0.5, once: true }}
         className="flex flex-col gap-[72px]">
         <h2 className='my-8 text-center text-[48px] font-bold'>Languages I speak</h2>
@@ -70,8 +70,8 @@ more and taking on new challenges.</p>
 
       <motion.section 
         whileInView={{y: 0, opacity: 1}}
-        initial={{y: 20, opacity: 0 }} //TODO: Shadow
-        transition={{duration: 1}}
+        initial={{y: 40, opacity: 0}}
+        transition={{duration: 0.3}}
         style={{ shadow: scrollYProgress }}
         >
         <div className="flex flex-col lg:flex-row justify-center gap-[124px]">
