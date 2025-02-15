@@ -77,8 +77,8 @@ in UX/UI design. I was born in Poland, then moved to
 the Netherlands when I was 14, and now I’m about to relocate to Germany. I’m looking forward to learning 
 more and taking on new challenges.</p>
             <div className="flex flex-col lg:flex-row gap-[20px] w-full items-start">
-              <ContactButton />
-              <Button text={"LinkedIn profile"} variant="secondary" />
+              <Button text={"Download my CV"} variant="primary" />
+              <Button  text={"LinkedIn profile"} variant="secondary" onClick={() => window.open("https://www.linkedin.com/in/wiktoria-zemla-00a20b252/", "_blank")} />
             </div>
           </div>
           <img src={aboutme_1} alt='me' width='515'/>
