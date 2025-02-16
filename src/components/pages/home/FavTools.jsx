@@ -7,8 +7,8 @@ const FavTools = ({ tools }) => {
         <div className='flex flex-col pb-4 items-center gap-4'>
             <h2 className='my-8 text-center text-[48px] font-bold'>My favourite tools</h2>
     
-            <div className="my-8 lg:flex flex-wrap gap-[36px]">
-            {tools.map((tool, index) => (
+            <div className="my-8 flex flex-wrap gap-[36px] justify-center">
+                {tools.map((tool, index) => (
                     <div key={index}>
                         <ToolContainer tool={tool} />
                     </div>

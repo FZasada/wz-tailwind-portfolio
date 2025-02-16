@@ -70,7 +70,7 @@ export const PROJECTS = [
         introduction: "For my thesis project as part of my study, I chose to focus on addressing the challenges faced by students in the Internationale Schakelklas (ISK), which translates to International Transition Class. This is a type of school in the Netherlands designed to help students who do not yet speak Dutch, particularly young refugees, integrate into the Dutch educational system. Drawing from my personal experience as a former ISK student, I understood firsthand how difficult it can be to feel included in a group when language is a barrier. This led me to develop a tool aimed at improving communication, group dynamics, and the use of the Dutch language within these classes. Through my research and design, I sought to create a solution that fosters teamwork and inclusivity, helping students overcome language challenges while building social connections.",
         designProcess: "To tackle this issue, I began by researching different group dynamics and communication challenges in multicultural classrooms. I analyzed how students currently interact, focusing on their social behavior, communication patterns, and the obstacles they face when engaging with each other. In addition to speaking with teachers and administrators, I also conducted interviews with students to get insights into their personal experiences and what would make them feel more included.\n\nFrom these insights, I developed the concept for Quizzy—an interactive platform that integrates gamified elements to enhance communication and teamwork skills among students. The platform allows students to answer questions in Dutch as part of a quiz, but the questions themselves are related to the specific school subjects they are studying. The app is designed to be simple and intuitive, ensuring that students of all language levels can participate and interact in meaningful ways. In this way, Quizzy encourages both language learning and social interaction, making the classroom a more inclusive and engaging environment.",
         result: "Quizzy proved to be a successful solution for improving communication and team dynamics in the ISK classroom. Students who initially struggled with Dutch now had a fun, interactive way to practice the language while collaborating with their peers. Teachers reported an increase in student engagement, with many students becoming more confident in their language abilities and willing to participate in group activities.\n\nThe app was designed to be user-friendly and adaptable, catering to the needs of a diverse group of students. Its gamified elements kept the learning process exciting and motivating, while also promoting teamwork, which was especially important for students who might have otherwise felt isolated. By combining language learning with social interaction, Quizzy achieved its goal of creating an inclusive, dynamic classroom environment.",
-        tags: ["Website Design", "Graphic Design"],
+        tags: ["Website Design"],
         color: "#D9D8F6",
         imgSize: [280, 295],
         webUrl: '/project/2'
@@ -82,31 +82,41 @@ export const TOOLS = [
         icon: figma,
         title: 'Figma',
         width: 39,
-        height: 58
+        height: 58,
+        sm_width: 28,
+        sm_height: 52
     },
     {
         icon: affinitydesigner,
         title: 'Affinity Designer',
         width: 54,
-        height: 54
+        height: 54,
+        sm_width: 38,
+        sm_height: 38
     },
     {
         icon: affinityphoto,
         title: 'Affinity Photo',
         width: 54,
         height: 54,
+        sm_width: 38,
+        sm_height: 38
     },
     {
         icon: adobexd,
         title: 'Adobe XD',
         width: 54,
         height: 54,
+        sm_width: 38,
+        sm_height: 38
     },
     {
         icon: illustrator,
         title: 'Illustrator',
         width: 54,
         height: 54,
+        sm_width: 38,
+        sm_height: 38
     },
 ]
 

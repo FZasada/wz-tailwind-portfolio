@@ -13,18 +13,14 @@ const Hero = () => {
               // variants={container(0)}
               // initial="hidden"
               // animate="visible"
-              className="text-[18px] mb-[6px]"
+              className="text-[16px] lg:text-[18px] mb-[6px]"
             >
               Hi there,
             </h4>
-            <h1
-              className="mb-[12px] text-[72px] font-bold"
-            >
+            <h1 className="mb-[12px] text-[44px] lg:text-[72px] font-bold">
               I’m Wiktoria
             </h1>
-            <span
-              className="pb-16 text-[24px] font-medium"
-            >
+            <span className="pb-16 text-[24px] font-medium">
               I’m a passionate <span className="text-primary">UX/UI Designer</span> who crafts engaging and intuitive digital experiences.
             </span>
             {/* No need for extra motion.div wrapper here */}

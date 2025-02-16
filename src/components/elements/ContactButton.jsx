@@ -6,7 +6,6 @@ import envelope_w from '../../assets/icons/envelope_w.png'
 
 const ContactButton = () => {
     const contact = () => {
-        console.log("Contacting ", EMAIL);
         window.location.href = `mailto:${EMAIL}`;
     }
 

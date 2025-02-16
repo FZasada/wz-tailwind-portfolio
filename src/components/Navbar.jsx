@@ -5,7 +5,7 @@ import ContactButton from './elements/ContactButton';
 
 import logo from '../assets/logo.png';
 import burgerMenu from '../assets/icons/burger_menu.png';
-import enveloper_r from '../assets/icons/enveloper_r.png';
+import envelope_r from '../assets/icons/envelope_r.png';
 import { EMAIL } from '../constants';
 
 const Navbar = () => {
@@ -42,30 +42,30 @@ const Navbar = () => {
   return (
     <nav className="items-center pt-6 mb-[70px] max-w-screen-xl flex flex-wrap gap-12 justify-between mx-auto">
       <div className="flex flex-shrink-0 items-center">
-        <img className="w-[56px] h-[46px]" src={logo} alt="FZ" />
+        <img className="lg:w-[56px] lg:h-[46px] h-[30px]" src={logo} alt="FZ" />
       </div>
 
       {/* Burger menu button (only visible on small screens) */}
-      <div className="space-x-2">
+      <div className="flex gap-[18px]">
         <button 
           type="button" 
-          className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" 
+          className="inline-flex items-center justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" 
           aria-controls="navbar-default" 
           aria-expanded={isMenuOpen ? 'true' : 'false'} 
           onClick={contact}
         >
           <span className="sr-only">Contact</span>
-          <img src={enveloper_r} alt="Contact" className="w-40" />
+          <img src={envelope_r} alt="Contact" className='w-[30px]'/>
         </button>
         <button 
           type="button" 
-          className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" 
+          className="inline-flex items-center justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" 
           aria-controls="navbar-default" 
           aria-expanded={isMenuOpen ? 'true' : 'false'} 
           onClick={toggleMenu} // Toggle the menu visibility
         >
           <span className="sr-only">Open main menu</span>
-          <img src={burgerMenu} alt="Burger Menu" className="w-40" />
+          <img src={burgerMenu} alt="Burger Menu" className="w-[30px]" />
         </button>
       </div>
 

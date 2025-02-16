@@ -30,18 +30,8 @@ const Project = () => {
       return PROJECTS.filter(p => p.id !== project.id);
     }
 
-    const goBack = () => {
-      navigate(-1);
-    };
-
     return (
         <div>
-            <button 
-                onClick={goBack} 
-                className="flex items-center gap-2 text-primary underline bg-transparent border-none cursor-pointer"
-            >
-                <FaArrowLeft /> Go back
-            </button>
             <Hero project={project} />
             <Content project={project} />
             <Projects projects={getRemainingProjects()} />
