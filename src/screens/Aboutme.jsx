@@ -74,7 +74,7 @@ function Aboutme() {
                 {ABOUTMEHETO}
             </p>
             <div className="flex flex-col lg:flex-row gap-[20px] w-full items-start">
-              <Button text={"Download my CV"} variant="primary" />
+              <Button text={"Download my CV"} variant="primary" disabled={true} title="Currently not available" />
               <Button  text={"LinkedIn profile"} variant="secondary" onClick={() => window.open("https://www.linkedin.com/in/wiktoria-zemla-00a20b252/", "_blank")} />
             </div>
           </div>

@@ -11,7 +11,7 @@
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
-    "postbuild": "cp build/index.html build/404.html"
+    "postbuild": "cp dist/index.html dist/404.html"
   },
   "dependencies": {
     "motion": "^11.14.4",

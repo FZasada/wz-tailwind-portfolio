@@ -26,7 +26,7 @@ const Hero = () => {
             {/* No need for extra motion.div wrapper here */}
             <div className="flex flex-col lg:flex-row gap-[20px] w-full items-start">
               <ContactButton />
-              <Button text={"Download my CV"} variant="secondary" />
+              <Button text={"Download my CV"} variant="secondary" disabled={true} title="Currently not available" />
             </div>
           </div>
         </div>
