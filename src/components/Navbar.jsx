@@ -20,7 +20,6 @@ const Navbar = () => {
   };
 
   const contact = () => {
-    console.log("Contacting ", EMAIL);
     window.location.href = `mailto:${EMAIL}`;
   };
 
