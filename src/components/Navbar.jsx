@@ -39,13 +39,15 @@ const Navbar = () => {
   }, [isMenuOpen]);
 
   return (
-    <nav className="items-center pt-6 mb-[70px] max-w-screen-xl flex flex-wrap gap-12 justify-between mx-auto">
+      <nav className="items-center pt-4 px-6 py-4 sm:px-0 mb-[70px] max-w-screen-xl flex flex-wrap gap-12 justify-between mx-auto fixed top-0 left-0 right-0 z-50 bg-white md:relative">
       <div className="flex flex-shrink-0 items-center">
-        <NavLink to="/"><img className="lg:w-[56px] lg:h-[46px] h-[30px]" src={logo} alt="FZ" /></NavLink>
+        <NavLink to="/">
+          <img className="lg:w-[56px] lg:h-[46px] h-[30px]" src={logo} alt="FZ" />
+        </NavLink>
       </div>
 
       {/* Burger menu button (only visible on small screens) */}
-      <div className="flex gap-[18px]">
+      <div className="flex gap-6">
         <button 
           type="button" 
           className="inline-flex items-center justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" 

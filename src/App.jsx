@@ -44,8 +44,8 @@ const App = () => {
   return (
     <div className='overflow-x-hidden text-neutral-900 antialiased selection:bg-cyan-300 selection:text-cyan-900'>
       <Router>
-        <div className='container mx-auto px-6 lg:px-20' ref={refScrollUp}>
-          <Navbar />
+        <div className='container mx-auto px-6 lg:px-20 pt-[80px] md:pt-0' ref={refScrollUp}>
+        <Navbar />
           <Topbutton
             showTopUp={showTopUp}
             scrollUp={handleScrollUp}
