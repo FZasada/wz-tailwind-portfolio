@@ -32,7 +32,16 @@ function Aboutme() {
   
       return () => clearInterval(interval);
     }, []);
-  
+
+    const donwload = () => {
+        const pdfUrl = import.meta.env.VITE_CV_FILE_PATH;
+        const link = document.createElement("a");
+        link.href = pdfUrl;
+        link.download = "CV_Wiktoria_Zemla";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    };
 
   return (
     <div className='flex flex-col gap-[220px]'>
@@ -74,7 +83,7 @@ function Aboutme() {
                 {ABOUTMEHETO}
             </p>
             <div className="flex flex-col lg:flex-row gap-[20px] w-full items-start">
-              <Button text={"Download my CV"} variant="primary" disabled={true} title="Currently not available" />
+              <Button text={"Download my CV"} variant="primary" onClick={() => donwload()} />
               <Button  text={"LinkedIn profile"} variant="secondary" onClick={() => window.open("https://www.linkedin.com/in/wiktoria-zemla-00a20b252/", "_blank")} />
             </div>
           </div>

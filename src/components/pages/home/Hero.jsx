@@ -4,6 +4,16 @@ import { motion } from 'framer-motion'; // Corrected import
 import ContactButton from '../../elements/ContactButton';
 
 const Hero = () => {
+  const donwload = () => {
+    const pdfUrl = import.meta.env.VITE_CV_FILE_PATH;
+    const link = document.createElement("a");
+    link.href = pdfUrl;
+    link.download = "CV_Wiktoria_Zemla";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <div className="flex pb-4 lg:mb-35">
       <div className="flex flex-wrap items-center gap-12 lg:gap-0">
@@ -26,7 +36,7 @@ const Hero = () => {
             {/* No need for extra motion.div wrapper here */}
             <div className="flex flex-col lg:flex-row gap-[20px] w-full items-start">
               <ContactButton />
-              <Button text={"Download my CV"} variant="secondary" disabled={true} title="Currently not available" />
+              <Button text={"Download my CV"} variant="secondary" onClick={() => donwload()} />
             </div>
           </div>
         </div>

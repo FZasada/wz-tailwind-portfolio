@@ -14,6 +14,7 @@
     "postbuild": "cp dist/index.html dist/404.html"
   },
   "dependencies": {
+    "dotenv": "^16.5.0",
     "motion": "^11.14.4",
     "prop-types": "^15.8.1",
     "react": "^18.3.1",
