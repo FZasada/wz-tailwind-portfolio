@@ -42,7 +42,7 @@ const Navbar = () => {
   return (
     <nav className="items-center pt-6 mb-[70px] max-w-screen-xl flex flex-wrap gap-12 justify-between mx-auto">
       <div className="flex flex-shrink-0 items-center">
-        <img className="lg:w-[56px] lg:h-[46px] h-[30px]" src={logo} alt="FZ" />
+        <NavLink to="/"><img className="lg:w-[56px] lg:h-[46px] h-[30px]" src={logo} alt="FZ" /></NavLink>
       </div>
 
       {/* Burger menu button (only visible on small screens) */}
