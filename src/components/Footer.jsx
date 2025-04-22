@@ -27,7 +27,7 @@ const Footer = () => {
           Portfolio
         </NavLink>
         <NavLink
-          to="/about"
+          to="/aboutme"
           className={({ isActive }) =>
             isActive
               ? 'text-primary transition-all duration-200 ease-in-out font-bold'

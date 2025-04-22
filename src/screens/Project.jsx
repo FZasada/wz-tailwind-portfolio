@@ -34,6 +34,7 @@ const Project = () => {
         <div>
             <Hero project={project} />
             <Content project={project} />
+            <br />
             <Projects projects={getRemainingProjects()} />
         </div>
     )

@@ -14,17 +14,22 @@ const Hero = () => {
     document.body.removeChild(link);
   };
 
+  const myAnimation = {
+    hidden: { opacity: 0, y: 10 },
+    visible: { opacity: 1, y: 0 },
+  };
+
   return (
-    <div className="flex pb-4 lg:mb-35">
+    <motion.div
+        variants={myAnimation}
+        initial="hidden"
+        animate="visible"
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="flex pb-4 lg:mb-35">
       <div className="flex flex-wrap items-center gap-12 lg:gap-0">
         <div className="w-full lg:w-1/2">
           <div className="flex flex-col lg:items-start">
-            <h4
-              // variants={container(0)}
-              // initial="hidden"
-              // animate="visible"
-              className="text-[16px] lg:text-[18px] mb-[6px]"
-            >
+            <h4 className="text-[16px] lg:text-[18px] mb-[6px]">
               Hi there,
             </h4>
             <h1 className="mb-[12px] text-[44px] lg:text-[72px] font-bold">
@@ -47,7 +52,7 @@ const Hero = () => {
           style={{ width: '477px', height: 'auto' }}
         />
       </div>
-    </div>
+    </motion.div>
   );
 };
 

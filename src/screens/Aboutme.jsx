@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import {AnimatePresence, motion, useScroll} from 'motion/react'
+import {motion} from 'motion/react'
 
 import { WORK, EDUCATION, ABOUTMEHETO, ABOUTMEFREETIME } from '../constants/index';
 import LanguageComponent from '../components/elements/LanguageComponent';
@@ -45,78 +45,121 @@ function Aboutme() {
 
   return (
     <div className='flex flex-col gap-[220px]'>
-      {/*<motion.section*/}
-      {/*    whileInView={{y: 0, opacity: 1}}*/}
-      {/*    initial={{y: 40, opacity: 0}}*/}
-      {/*    transition={{duration: 0.3}}*/}
-      {/*>*/}
-        <section>
-        <div className="flex flex-col lg:flex-row gap-[125px]">
-          <div className='flex flex-col justify-end'>
-            <div className='mb-[24px]' style={{ height: '70px', position: 'relative', overflow: 'hidden' }}>
-              {/*<AnimatePresence initial={false}>*/}
-                <div
-                  // key={hiMsg[currentIndex]}
-                  // initial={{ y: '-100%' }}
-                  // animate={{ y: '0%' }}
-                  // exit={{ y: '100%' }}
-                  // transition={{
-                  //   y: { type: "tween", duration: 0.5, ease: "easeInOut" }
-                  // }}
-                  style={{ 
-                    position: 'absolute',
-                    width: '100%',
-                    height: '100%',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'flex-start'
-                  }}
-                >
-                  <h1 className="mb-[12px] text-[72px] font-bold">
-                    {hiMsg[currentIndex]}<span className='text-primary'>!</span>
-                  </h1>
-                </div>
-              {/*</AnimatePresence>*/}
-            </div>
-
-            <p className="mb-[64px] text-[18px]">
-                {ABOUTMEHETO}
-            </p>
-            <div className="flex flex-col lg:flex-row gap-[20px] w-full items-start">
-              <Button text={"Download my CV"} variant="primary" onClick={() => donwload()} />
-              <Button  text={"LinkedIn profile"} variant="secondary" onClick={() => window.open("https://www.linkedin.com/in/wiktoria-zemla-00a20b252/", "_blank")} />
-            </div>
-          </div>
-          <img src={aboutme_1} alt='me' width='515'/>
-        </div>
-      {/*</motion.section>*/}
-        </section>
-
-
-      {/*<motion.section */}
-      {/*  whileInView={{y: 0, opacity: 1}}*/}
-      {/*  initial={{y: 40, opacity: 0}}*/}
-      {/*  transition={{duration: 0.3}}*/}
-      {/*  className="flex flex-col gap-[72px]">*/}
-        <section>
-        <h2 className='my-8 text-center text-[48px] font-bold'>Languages I speak</h2>
-        <div className='flex flex-col lg:flex-row justify-center items-center gap-[96px] w-full'>
-            <LanguageComponent iconSrc={polish} language='Polish' level='Native' />
-            <LanguageComponent iconSrc={dutch} language='Dutch' level='Fluent' />
-            <LanguageComponent iconSrc={english} language='English' level='Fluent' />
-            <LanguageComponent iconSrc={german} language='German' level='Intermediate' />
-        </div>
-      </section>
-
-
-
-
-      <section
-        // whileInView={{y: 0, opacity: 1}}
-        // initial={{y: 40, opacity: 0}}
-        // transition={{duration: 0.3}}
-        // style={{ shadow: scrollYProgress }}
+        <motion.section
+            initial={{ y: 20, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{
+                ease: "easeInOut",
+                duration: 0.6,
+            }}
+            viewport={{ once: true, amount: 0.5 }}
         >
+            <div className="flex flex-col lg:flex-row gap-[125px]">
+              <div className='flex flex-col justify-end'>
+                <div className='mb-[24px]' style={{ height: '70px', position: 'relative', overflow: 'hidden' }}>
+                    <div
+                      style={{
+                        position: 'absolute',
+                        width: '100%',
+                        height: '100%',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'flex-start'
+                      }}
+                    >
+                      <h1 className="mb-[12px] text-[72px] font-bold">
+                        {hiMsg[currentIndex]}<span className='text-primary'>!</span>
+                      </h1>
+                    </div>
+                  {/*</AnimatePresence>*/}
+                </div>
+
+                <p className="mb-[64px] text-[18px]">
+                    {ABOUTMEHETO}
+                </p>
+                <div className="flex flex-col lg:flex-row gap-[20px] w-full items-start">
+                  <Button text={"Download my CV"} variant="primary" onClick={() => donwload()} />
+                  <Button  text={"LinkedIn profile"} variant="secondary" onClick={() => window.open("https://www.linkedin.com/in/wiktoria-zemla-00a20b252/", "_blank")} />
+                </div>
+              </div>
+              <img src={aboutme_1} alt='me' width='515'/>
+            </div>
+        </motion.section>
+
+
+        <motion.section
+            initial={{ y: 20, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{
+                ease: "easeInOut",
+                duration: 0.6,
+            }}
+            viewport={{ once: true, amount: 0.5 }}
+            className='flex flex-col sm:gap-2'>
+        <h2 className='my-8 text-center text-[48px] font-bold'>Languages I speak</h2>
+        <div className='flex flex-col lg:flex-row justify-center items-center gap-[96px] w-full mt-8'>
+            <motion.span
+                initial={{ y: 0, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{
+                    ease: "easeInOut",
+                    duration: 0.5,
+                    delay: 0.1
+                }}
+                viewport={{ once: true }}
+            >
+                <LanguageComponent iconSrc={polish} language='Polish' level='Native' />
+            </motion.span>
+            <motion.span
+                initial={{ y: 0, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{
+                    ease: "easeInOut",
+                    duration: 0.5,
+                    delay: 0.2
+                }}
+                viewport={{ once: true }}
+            >
+                <LanguageComponent iconSrc={dutch} language='Dutch' level='Fluent' />
+            </motion.span>
+            <motion.span
+                initial={{ y: 0, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{
+                    ease: "easeInOut",
+                    duration: 0.5,
+                    delay: 0.3
+                }}
+                viewport={{ once: true }}
+            >
+                <LanguageComponent iconSrc={english} language='English' level='Fluent' />
+            </motion.span>
+            <motion.span
+                initial={{ y: 0, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{
+                    ease: "easeInOut",
+                    duration: 0.5,
+                    delay: 0.4
+                }}
+                viewport={{ once: true }}
+            >
+                <LanguageComponent iconSrc={german} language='German' level='Intermediate' />
+            </motion.span>
+        </div>
+      </motion.section>
+
+
+
+
+    <motion.section
+        initial={{ y: 20, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{
+            ease: "easeInOut",
+            duration: 0.6,
+        }}
+        viewport={{ once: true, amount: 0.5 }}>
         <div className="flex flex-col lg:flex-row justify-center gap-[124px]">
           <div>
             <h2 className='my-8 text-[48px] font-bold'>
@@ -135,20 +178,37 @@ function Aboutme() {
         </div>
         <div id="about-3-right-border"/>
       {/*</motion.section>*/}
-      </section>
+      </motion.section>
 
 
 
-      <section className='flex flex-col justify-center items-center w-full gap-12'>
+    <motion.section
+        initial={{ y: 20, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{
+            ease: "easeInOut",
+            duration: 0.6,
+        }}
+        viewport={{ once: true, amount: 0.3 }}
+        className='flex flex-col justify-center items-center w-full gap-12'>
           <h2 className='my-8 text-center text-[48px] font-bold'>Work Experience</h2>
           <Timeline data={WORK} />
-      </section>
+      </motion.section>
 
-    <section className='flex flex-col justify-center items-center w-full gap-12'>
+        <motion.section
+            initial={{ y: 20, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{
+                ease: "easeInOut",
+                duration: 0.6,
+            }}
+            viewport={{ once: true, amount: 0.3 }}
+            className='flex flex-col justify-center items-center w-full gap-12'
+        >
         <h2 className='my-8 text-center text-[48px] font-bold'>Education</h2>
         <Timeline data={EDUCATION} />
 
-      </section>   
+      </motion.section>
       
     </div>
   )

@@ -1,3 +1,5 @@
+import { motion } from 'motion/react'
+
 const Timeline = ({ data }) => {
     return (
         <div className="relative max-w-6xl mx-auto pb-20">
@@ -9,7 +11,15 @@ const Timeline = ({ data }) => {
                     const isLeft = index % 2 === 0;
 
                     return (
-                        <div key={index} className="flex flex-col w-full relative">
+                        <motion.div
+                            initial={{opacity: 0, y: 20}}
+                            whileInView={{opacity: 1, y: 0}}
+                            transition={{
+                                ease: "easeInOut",
+                                duration: 0.6,
+                            }}
+                            viewport={{ once: true, amount: 0.5 }}
+                            key={index} className="flex flex-col w-full relative">
                             {/* === MOBILE VERSION === */}
                             <div className="sm:hidden w-full flex flex-col items-start gap-1 relative">
                                 {/* Date */}
@@ -77,7 +87,7 @@ const Timeline = ({ data }) => {
                                     )}
                                 </div>
                             </div>
-                        </div>
+                        </motion.div>
                     );
                 })}
             </div>

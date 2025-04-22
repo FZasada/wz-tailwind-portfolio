@@ -6,37 +6,30 @@ const Hero = ({ project }) => {
   }
 
   return (
-    <div className='flex flex-col items-center text-center'>
+    <motion.div
+        initial={{ y: 20, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{
+            ease: "easeInOut",
+            duration: 0.6,
+        }}
+        viewport={{ once: true }}
+        className='flex flex-col items-center text-center'
+    >
       <div className="flex flex-col w-full lg:w-1/2 mb-6">
-        <span
-          // initial={{x: -100, opacity: 0}}
-          // animate={{x: 0, opacity: 1}}
-          // transition={{duration: 0.5}}
-          className='text-primary font-semibold my-4'>
+        <span className='text-primary font-semibold my-4'>
             {project.tags.join(", ")}
         </span>
-        <h1
-          // initial={{x: -100, opacity: 0}}
-          // animate={{x: 0, opacity: 1}}
-          // transition={{duration: 0.5, delay: 0.2}}
-          className='pb-4 text-4xl font-semibold lg:text-7xl'>{project.title}
+        <h1 className='pb-4 text-4xl font-semibold lg:text-7xl'>{project.title}
         </h1>
-        <p
-          // initial={{x: -100, opacity: 0}}
-          // animate={{x: 0, opacity: 1}}
-          // transition={{duration: 0.5, delay: 0.4}}
-        >{project.shortDescription}</p>
+        <p>{project.shortDescription}</p>
       </div>
       <div className="w-full mt-16">
-        <img
-          // initial={{opacity: 0}}
-          // animate={{opacity: 1}}
-          // transition={{duration: 0.5, delay: 0.6}}
-          src={project.img} 
+        <img src={project.img}
           alt="Banner"
         />
       </div>
-    </div>
+    </motion.div>
   );
 }
 

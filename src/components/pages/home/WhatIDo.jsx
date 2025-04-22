@@ -8,8 +8,16 @@ import iconGraphicDesign from '../../../assets/icons/graphic_design.png'
 
 
 const WhatIDo = () => {
-  return (
-    <div className="lg:px-28">
+    return (
+    <motion.div
+        initial={{ y: 20, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{
+            ease: "easeInOut",
+            duration: 0.6,
+        }}
+        viewport={{ once: true, amount: 0.5 }}
+        className="lg:px-28">
         <div className='flex flex-row flex-wrap-reverse gap-12 lg:gap-0'>
             <div className="w-full lg:w-1/2 lg:px-8">
                 <div className="flex flex-col gap-20 text-center">
@@ -46,7 +54,7 @@ const WhatIDo = () => {
                 <p className="text-lg/9">{WHATDOIDO}</p>
             </div>
         </div>
-    </div>
+    </motion.div>
   )
 }
 

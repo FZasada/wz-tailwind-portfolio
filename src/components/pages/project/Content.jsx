@@ -6,53 +6,61 @@ import PropTypes from 'prop-types'
 const Content = ({ project }) => {
   return (
     <div className='flex flex-col gap-8 lg:gap-32 mt-4 lg:mt-20'>
-        <div
-            // whileInView={{x: 0, opacity: 1}}
-            // initial={{x: -100, opacity: 0}}
-            // transition={{duration: 0.8}}
+        <motion.div
+            initial={{ y: 20, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{
+                ease: "easeInOut",
+                duration: 0.6,
+            }}
+            viewport={{ once: true, amount: 0.5 }}
         >
             <h2 className='text-3xl font-bold py-6'>Introduction</h2>
             <p>{project.introduction}</p>
-        </div>
-        {project.problemOverview && (<div
-            // whileInView={{x: 0, opacity: 1}}
-            // initial={{x: -100, opacity: 0}}
-            // transition={{duration: 0.8}}
+        </motion.div>
+        {project.problemOverview && (<motion.div
+            initial={{ y: 20, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{
+                ease: "easeInOut",
+                duration: 0.6,
+            }}
+            viewport={{ once: true, amount: 0.5 }}
         >
             <h2 className='text-3xl font-bold py-6'>Problem overview</h2>
             <p>{project.problemOverview}</p>
-        </div>)}
-        {project.designProcess && (<div
-            // whileInView={{x: 0, opacity: 1}}
-            // initial={{x: -100, opacity: 0}}
-            // transition={{duration: 0.8}}
+        </motion.div>)}
+        {project.designProcess && (<motion.div
+            initial={{ y: 20, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{
+                ease: "easeInOut",
+                duration: 0.6,
+            }}
+            viewport={{ once: true, amount: 0.5 }}
         >
             <h2 className='text-3xl font-bold py-6'>Design process</h2>
             <p>{project.designProcess}</p>
-        </div>)}
-        <div
-            // whileInView={{x: 0, opacity: 1}}
-            // initial={{x: -100, opacity: 0}}
-            // transition={{duration: 0.8}}
-            className="w-full">
+        </motion.div>)}
+        <div className="w-full">
             <img
             src={project.banner2} 
             alt="Banner"
             />
         </div>
-        {project.result && (<div
-            // whileInView={{x: 0, opacity: 1}}
-            // initial={{x: -100, opacity: 0}}
-            // transition={{duration: 0.8}}
+        {project.result && (<motion.div
+            initial={{ y: 20, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{
+                ease: "easeInOut",
+                duration: 0.6,
+            }}
+            viewport={{ once: true, amount: 0.5 }}
         >
             <h2 className='text-3xl font-bold py-6'>Result</h2>
             <p>{project.result}</p>
-        </div>)}
-        <div
-            // whileInView={{x: 0, opacity: 1}}
-            // initial={{x: -100, opacity: 0}}
-            // transition={{duration: 0.8}}
-        >
+        </motion.div>)}
+        <div>
             <h2 className='text-2xl font-bold text-center'>See more of my work</h2>
         </div>
     </div>
