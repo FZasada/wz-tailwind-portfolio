@@ -19,10 +19,17 @@ import illustrator from '../assets/icons/software_tools/illustrator.svg.png';
 
 export const HERO_CONTENT = `I’m a passionate UX/UI Designer</span> who crafts engaging and intuitive digital experiences.`
 
-export const WHATDOIDO = `As a UX/UI designer, I work on creating digital experiences that are both easy to use and visually appealing. 
-Whether it’s designing websites, mobile apps, or graphics, I focus on making sure things look great and feel seamless. I keep the user experience simple, 
-functional, and enjoyable, without overcomplicating things.`
+export const WHATDOIDO = `As a UX/UI designer, I work on creating digital experiences that are both easy to use and visually appealing. Whether it’s designing websites, mobile apps, or graphics, I focus on making sure things look great and feel seamless. I keep the user experience simple, functional, and enjoyable, without overcomplicating things.`
 
+export const ABOUTMEHETO = "I’m Wiktoria Zemla, a recent graduate with a degree \n" +
+    "in Communication and Multimedia Design, specializing \n" +
+    "in UX/UI design. I was born in Poland, then moved to \n" +
+    "the Netherlands when I was 14, and now I’m about to relocate to Germany. I’m looking forward to learning \n" +
+    "more and taking on new challenges."
+
+export const ABOUTMEFREETIME = "Outside of work I’m a very active person, and I love spending that time with my dog, whether it's going on \n" +
+    "long walks or just hanging out at home. I'm also a big Netflix junkie, especially when I find a series that keeps \n" +
+    "me glued to the screen. It helps me relax while still feeling productive. The same goes for books, especially thrillers or horror stories with plenty of unexpected twists. When the weather is nice, you’ll most likely find me outdoors, traveling or exploring new places."
 
 export const PROJECTS = [
     {
@@ -126,14 +133,14 @@ export const WORK = [
       title: "Content Designer",
       company: "E-learning Platform For Kids (EFK), Klare Koek, Leeuwarden",
       description:
-        "In my free time, I’m a proud dog lover, nothing brings me more joy than spending time with dogs. I also love unwinding with a good Netflix series like La Casa de Papel, where I admire how much effort goes into executing great ideas, which parallels my own design process."
+        "In my role on the E-Learning for Kids (EFK) modernization project, I focused on updating educational content to enhance learning experiences for children."
     },
     {
       date: "2023 - 2023",
       title: "Internship",
       company: "Web-design, Klare Koek, Leeuwarden",
       description:
-        "In my free time, I’m a proud dog lover, nothing brings me more joy than spending time with dogs. I also love unwinding with a good Netflix series like La Casa de Papel, where I admire how much effort goes into executing great ideas, which parallels my own design process."
+        "During my internship at Klare Koek I was tasked with redesigning their existing Mediajungle website. My primary task was to create a more accessible, intuitive, and visually appealing website that effectively communicates Mediajungle’s expanded offerings and mission."
     }
   ];
 

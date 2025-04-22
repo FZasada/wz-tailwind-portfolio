@@ -2,10 +2,10 @@ import { motion } from "motion/react"
 
 const Projectfilter = ({selectedFilter, onFilter}) => {
   return (
-    <motion.div 
-        whileInView={{x: 0, opacity: 1}}
-        initial={{x: -100, opacity: 0}}
-        transition={{duration: 1}}
+    <div
+        // whileInView={{x: 0, opacity: 1}}
+        // initial={{x: -100, opacity: 0}}
+        // transition={{duration: 1}}
         className='flex gap-8'>
         <button 
             onClick={() => onFilter("")} 
@@ -31,7 +31,7 @@ const Projectfilter = ({selectedFilter, onFilter}) => {
         >
             Graphic Design
         </button>
-    </motion.div>
+    </div>
   )
 }
 
