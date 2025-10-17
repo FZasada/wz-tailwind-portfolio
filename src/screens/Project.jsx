@@ -1,9 +1,8 @@
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { PROJECTS } from '../constants';
 import Hero from '../components/pages/project/Hero';
 import { useEffect } from 'react';
 import Content from '../components/pages/project/Content';
-import { FaArrowLeft } from 'react-icons/fa';
 import Projects from '/src/components/pages/home/Projects.jsx';
 
 const Project = () => {

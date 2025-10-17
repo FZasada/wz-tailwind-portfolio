@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import PropTypes from 'prop-types';
 
 const Hero = ({ project }) => {
   if (!project) {
@@ -32,5 +33,14 @@ const Hero = ({ project }) => {
     </motion.div>
   );
 }
+
+Hero.propTypes = {
+  project: PropTypes.shape({
+    tags: PropTypes.arrayOf(PropTypes.string),
+    title: PropTypes.string,
+    shortDescription: PropTypes.string,
+    img: PropTypes.string
+  })
+};
 
 export default Hero;

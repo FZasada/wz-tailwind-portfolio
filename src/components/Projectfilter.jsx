@@ -1,6 +1,7 @@
-import { motion } from "motion/react"
+import {motion} from 'motion/react'
+import PropTypes from 'prop-types'
 
-const Projectfilter = ({selectedFilter, onFilter}) => {
+function Projectfilter({ selectedFilter, onFilter }) {
   return (
     <div
         // whileInView={{x: 0, opacity: 1}}
@@ -33,6 +34,11 @@ const Projectfilter = ({selectedFilter, onFilter}) => {
         </button>
     </div>
   )
+}
+
+Projectfilter.propTypes = {
+  selectedFilter: PropTypes.string.isRequired,
+  onFilter: PropTypes.func.isRequired,
 }
 
 export default Projectfilter

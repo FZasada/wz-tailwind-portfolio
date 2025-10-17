@@ -28,10 +28,10 @@ const Hero = () => {
                 Hi there,
               </h4>
               <h1 className="mb-[12px] text-[44px] lg:text-[72px] font-bold">
-                I'm Wiktoria
+                I&apos;m Wiktoria
               </h1>
               <span className="pb-16 text-[24px] font-medium">
-                I'm a passionate <span className="text-primary">UX/UI Designer</span> who crafts engaging and intuitive digital experiences.
+                I&apos;m a passionate <span className="text-primary">UX/UI Designer</span> who crafts engaging and intuitive digital experiences.
               </span>
               {/* No need for extra motion.div wrapper here */}
               <div className="flex flex-col lg:flex-row gap-[20px] w-full items-start">

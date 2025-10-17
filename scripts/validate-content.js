@@ -130,10 +130,10 @@ allErrors.push(...assetErrors.map(err => `assets: ${err}`));
 // Report results
 if (allErrors.length === 0) {
   console.log('✅ All content files are valid!');
-  process.exit(0);
+  globalThis.process.exit(0);
 } else {
   console.log('❌ Validation errors found:\n');
   allErrors.forEach(error => console.log(`  • ${error}`));
   console.log(`\n${allErrors.length} errors found.`);
-  process.exit(1);
+  globalThis.process.exit(1);
 }

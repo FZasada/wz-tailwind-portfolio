@@ -1,4 +1,4 @@
-import React from 'react'
+import PropTypes from 'prop-types'
 
 const Button = ({
                     text,
@@ -44,6 +44,15 @@ const Button = ({
             )}
         </button>
     );
+};
+
+Button.propTypes = {
+    text: PropTypes.string.isRequired,
+    icon: PropTypes.element,
+    variant: PropTypes.oneOf(['primary', 'secondary']),
+    onClick: PropTypes.func,
+    disabled: PropTypes.bool,
+    title: PropTypes.string,
 };
 
 export default Button;

@@ -1,4 +1,5 @@
-import { motion } from 'motion/react'
+import {motion} from 'motion/react'
+import PropTypes from 'prop-types'
 
 const Timeline = ({ data }) => {
     return (
@@ -93,6 +94,15 @@ const Timeline = ({ data }) => {
             </div>
         </div>
     );
+};
+
+Timeline.propTypes = {
+    data: PropTypes.arrayOf(PropTypes.shape({
+        date: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired,
+        company: PropTypes.string.isRequired,
+        description: PropTypes.string
+    })).isRequired
 };
 
 export default Timeline;

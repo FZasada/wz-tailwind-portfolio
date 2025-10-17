@@ -116,7 +116,7 @@ class ContentManager {
       const modules = import.meta.glob('/src/assets/**/*.{png,jpg,jpeg,svg,gif}', { eager: true });
       const fullPath = `/src/assets/${imagePath}`;
       return modules[fullPath]?.default || null;
-    } catch (error) {
+    } catch {
       console.warn(`Image not found: ${imagePath}`);
       return null;
     }
