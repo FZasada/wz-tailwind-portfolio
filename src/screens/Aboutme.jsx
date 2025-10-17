@@ -4,6 +4,8 @@ import {motion} from 'motion/react'
 import { WORK, EDUCATION, ABOUTMEHETO, ABOUTMEFREETIME } from '../constants/index';
 import LanguageComponent from '../components/elements/LanguageComponent';
 import Button from '../components/elements/Button';
+import usePasswordProtectedDownload from '../hooks/usePasswordProtectedDownload';
+import PasswordDialog from '../components/elements/PasswordDialog';
 
 import aboutme_1 from '../assets/about_me/images/hero.png'
 import withJackie from '../assets/about_me/images/dog_pic.png'
@@ -17,6 +19,7 @@ import Timeline from "../components/elements/Timeline.jsx";
 function Aboutme() {
     const hiMsg = ["Cześć", "Hoi", "Hello", "Moin"]
     const [currentIndex, setCurrentIndex] = useState(0);
+    const downloadHook = usePasswordProtectedDownload('0203');
 
     useEffect(() => {
         window.scrollTo({
@@ -31,17 +34,7 @@ function Aboutme() {
       }, 3000);
   
       return () => clearInterval(interval);
-    }, []);
-
-    const donwload = () => {
-        const pdfUrl = import.meta.env.VITE_CV_FILE_PATH;
-        const link = document.createElement("a");
-        link.href = pdfUrl;
-        link.download = "CV_Wiktoria_Zemla";
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-    };
+    }, [hiMsg.length]);
 
   return (
     <div className='flex flex-col gap-[220px]'>
@@ -78,7 +71,7 @@ function Aboutme() {
                     {ABOUTMEHETO}
                 </p>
                 <div className="flex flex-col lg:flex-row gap-[20px] w-full items-start">
-                  <Button text={"Download my CV"} variant="primary" onClick={() => donwload()} />
+                  <Button text={"Download my CV"} variant="primary" onClick={downloadHook.handleDownloadClick} />
                   <Button  text={"LinkedIn profile"} variant="secondary" onClick={() => window.open("https://www.linkedin.com/in/wiktoria-zemla-00a20b252/", "_blank")} />
                 </div>
               </div>
@@ -211,6 +204,7 @@ function Aboutme() {
 
       </motion.section>
       
+      <PasswordDialog {...downloadHook} />
     </div>
   )
 }

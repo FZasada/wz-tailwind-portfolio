@@ -21,7 +21,7 @@ export const HERO_CONTENT = `I’m a passionate UX/UI Designer</span> who crafts
 
 export const WHATDOIDO = `As a UX/UI designer, I work on creating digital experiences that are both easy to use and visually appealing. Whether it’s designing websites, mobile apps, or graphics, I focus on making sure things look great and feel seamless. I keep the user experience simple, functional, and enjoyable, without overcomplicating things.`
 
-export const ABOUTMEHETO = "I’m Wiktoria Zemla, a recent graduate with a degree \n" +
+export const ABOUTMEHETO = "I’m Wiktoria Zasada, a recent graduate with a degree \n" +
     "in Communication and Multimedia Design, specializing \n" +
     "in UX/UI design. I was born in Poland, then moved to \n" +
     "the Netherlands when I was 14, and now I’m about to relocate to Germany. I’m looking forward to learning \n" +
