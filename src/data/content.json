@@ -1,0 +1,91 @@
+{
+  "siteInfo": {
+    "name": "Wiktoria Zasada",
+    "title": "UX/UI Designer",
+    "email": "contact@wiktoriazemla.com",
+    "linkedIn": "https://www.linkedin.com/in/wiktoria-zemla-00a20b252/",
+    "domain": "https://wiktoriazemla.com",
+    "cvPassword": "0203"
+  },
+  "hero": {
+    "greeting": "Hi there,",
+    "name": "I'm Wiktoria",
+    "tagline": "I'm a passionate UX/UI Designer who crafts engaging and intuitive digital experiences.",
+    "image": "hero.png"
+  },
+  "about": {
+    "languages": [
+      { "name": "English", "icon": "cookie.png" },
+      { "name": "German", "icon": "pretzel.png" },
+      { "name": "Polish", "icon": "pierogi.png" },
+      { "name": "Dutch", "icon": "kaas.png" }
+    ],
+    "mainText": "I'm Wiktoria Zasada, a recent graduate with a degree in Communication and Multimedia Design, specializing in UX/UI design. I was born in Poland, then moved to the Netherlands when I was 14, and now I'm about to relocate to Germany. I'm looking forward to learning more and taking on new challenges.",
+    "freeTimeText": "Outside of work I'm a very active person, and I love spending that time with my dog, whether it's going on long walks or just hanging out at home. I'm also a big Netflix junkie, especially when I find a series that keeps me glued to the screen. It helps me relax while still feeling productive. The same goes for books, especially thrillers or horror stories with plenty of unexpected twists. When the weather is nice, you'll most likely find me outdoors, traveling or exploring new places.",
+    "heroImage": "hero.png",
+    "dogImage": "dog_pic.png"
+  },
+  "whatIDo": {
+    "title": "What I do",
+    "description": "As a UX/UI designer, I work on creating digital experiences that are both easy to use and visually appealing. Whether it's designing websites, mobile apps, or graphics, I focus on making sure things look great and feel seamless. I keep the user experience simple, functional, and enjoyable, without overcomplicating things.",
+    "services": [
+      {
+        "icon": "web_design.png",
+        "title": "Web Design",
+        "description": "Creating user-friendly and visually appealing websites"
+      },
+      {
+        "icon": "app_design.png", 
+        "title": "App Design",
+        "description": "Designing intuitive mobile applications"
+      },
+      {
+        "icon": "graphic_design.png",
+        "title": "Graphic Design", 
+        "description": "Visual communication through creative design"
+      }
+    ]
+  },
+  "tools": [
+    {
+      "name": "Figma",
+      "icon": "figma.png",
+      "width": 54,
+      "height": 54,
+      "sm_width": 38,
+      "sm_height": 38
+    },
+    {
+      "name": "Affinity Designer",
+      "icon": "affinitydesigner.svg.png",
+      "width": 54,
+      "height": 54,
+      "sm_width": 38,
+      "sm_height": 38
+    },
+    {
+      "name": "Affinity Photo",
+      "icon": "affinityphoto.svg.png",
+      "width": 54,
+      "height": 54,
+      "sm_width": 38,
+      "sm_height": 38
+    },
+    {
+      "name": "Adobe XD",
+      "icon": "adobexd.svg.png",
+      "width": 54,
+      "height": 54,
+      "sm_width": 38,
+      "sm_height": 38
+    },
+    {
+      "name": "Illustrator",
+      "icon": "illustrator.svg.png",
+      "width": 54,
+      "height": 54,
+      "sm_width": 38,
+      "sm_height": 38
+    }
+  ]
+}

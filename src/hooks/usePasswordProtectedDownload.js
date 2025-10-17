@@ -1,6 +1,9 @@
 import { useState } from 'react';
+import contentManager from '../utils/contentManager';
 
-const usePasswordProtectedDownload = (correctPassword = '0203') => {
+const usePasswordProtectedDownload = (correctPassword = null) => {
+  // Use password from content manager if not provided
+  const correctPass = correctPassword || contentManager.getCvPassword();
   const [showPasswordDialog, setShowPasswordDialog] = useState(false);
   const [password, setPassword] = useState('');
   const [passwordError, setPasswordError] = useState('');
@@ -12,7 +15,7 @@ const usePasswordProtectedDownload = (correctPassword = '0203') => {
   };
 
   const handlePasswordSubmit = () => {
-    if (password === correctPassword) {
+    if (password === correctPass) {
       // Passwort korrekt - Download starten
       const pdfUrl = import.meta.env.VITE_CV_FILE_PATH;
       const link = document.createElement("a");

@@ -1,0 +1,30 @@
+[
+  {
+    "type": "work",
+    "date": "2022 - Present",
+    "title": "Content Designer",
+    "company": "E-learning Platform For Kids (EFK), Klare Koek, Leeuwarden",
+    "description": "In my role on the E-Learning for Kids (EFK) modernization project, I focused on updating educational content to enhance learning experiences for children."
+  },
+  {
+    "type": "work",
+    "date": "2023 - 2023",
+    "title": "Internship",
+    "company": "Web-design, Klare Koek, Leeuwarden",
+    "description": "During my internship at Klare Koek I was tasked with redesigning their existing Mediajungle website. My primary task was to create a more accessible, intuitive, and visually appealing website that effectively communicates Mediajungle's expanded offerings and mission."
+  },
+  {
+    "type": "education",
+    "date": "2020 - 2024",
+    "title": "Bachelor of Science",
+    "company": "NHL Stenden University of Applied Sciences, Leeuwarden",
+    "description": "I studied Communication and Multimedia Design, specializing in UX/UI design. Over four years, I completed client-based projects across industries, learning to meet client needs under time pressure while delivering effective, user-centered design solutions."
+  },
+  {
+    "type": "education",
+    "date": "2016 - 2020",
+    "title": "Higher Education",
+    "company": "CSG Bogerman, Balk/Sneek",
+    "description": ""
+  }
+]

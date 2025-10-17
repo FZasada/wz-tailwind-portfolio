@@ -11,7 +11,12 @@
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
-    "postbuild": "cp dist/index.html dist/404.html"
+    "postbuild": "cp dist/index.html dist/404.html",
+    "quick-deploy": "./deploy.sh",
+    "content:validate": "node scripts/validate-content.js",
+    "content:add-project": "node scripts/add-project.js",
+    "assets:optimize": "node scripts/optimize-assets.js",
+    "check": "npm run lint && npm run content:validate"
   },
   "dependencies": {
     "dotenv": "^16.5.0",

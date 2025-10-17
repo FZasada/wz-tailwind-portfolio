@@ -1,0 +1,44 @@
+{
+  "basePaths": {
+    "images": "/src/assets",
+    "icons": "/src/assets/icons",
+    "projects": "/src/assets/projects",
+    "aboutMe": "/src/assets/about_me"
+  },
+  "assets": {
+    "cv": {
+      "path": "/public/docs/cv.pdf",
+      "filename": "CV_Wiktoria_Zasada.pdf",
+      "envVar": "VITE_CV_FILE_PATH"
+    },
+    "favicon": {
+      "path": "/public/logo.ico"
+    },
+    "images": {
+      "hero": "hero.png",
+      "aboutHero": "about_me/images/hero.png",
+      "dogPhoto": "about_me/images/dog_pic.png",
+      "logo": "logo.png"
+    },
+    "icons": {
+      "services": {
+        "webDesign": "icons/web_design.png",
+        "appDesign": "icons/app_design.png", 
+        "graphicDesign": "icons/graphic_design.png"
+      },
+      "languages": {
+        "english": "about_me/icons/cookie.png",
+        "german": "about_me/icons/pretzel.png",
+        "polish": "about_me/icons/pierogi.png",
+        "dutch": "about_me/icons/kaas.png"
+      },
+      "tools": {
+        "figma": "icons/software_tools/figma.png",
+        "affinityDesigner": "icons/software_tools/affinitydesigner.svg.png",
+        "affinityPhoto": "icons/software_tools/affinityphoto.svg.png",
+        "adobeXd": "icons/software_tools/adobexd.svg.png",
+        "illustrator": "icons/software_tools/illustrator.svg.png"
+      }
+    }
+  }
+}
