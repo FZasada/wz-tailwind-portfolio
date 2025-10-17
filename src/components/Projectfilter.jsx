@@ -1,4 +1,3 @@
-import {motion} from 'motion/react'
 import PropTypes from 'prop-types'
 
 function Projectfilter({ selectedFilter, onFilter }) {
