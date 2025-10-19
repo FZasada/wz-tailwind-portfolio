@@ -72,7 +72,7 @@ function Aboutme() {
                 </p>
                 <div className="flex flex-col lg:flex-row gap-[20px] w-full items-start">
                   <Button text={"Download my CV"} variant="primary" onClick={downloadHook.handleDownloadClick} />
-                  <Button  text={"LinkedIn profile"} variant="secondary" onClick={() => window.open("https://www.linkedin.com/in/wiktoria-zemla-00a20b252/", "_blank")} />
+                  <Button  text={"LinkedIn profile"} variant="secondary" onClick={() => window.open("https://www.linkedin.com/in/wiktoria-zasada-00a20b252/", "_blank")} />
                 </div>
               </div>
               <img src={aboutme_1} alt='me' width='515'/>

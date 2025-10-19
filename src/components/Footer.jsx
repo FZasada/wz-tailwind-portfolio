@@ -47,7 +47,7 @@ const Footer = () => {
           <FaInstagram /> Instagram
         </NavLink>
         <NavLink
-          to="https://www.linkedin.com/in/wiktoria-zemla-00a20b252/"
+          to="https://www.linkedin.com/in/wiktoria-zasada-00a20b252/"
           className="flex items-center gap-2 hover:text-primary hover:font-bold transition-all duration-200 ease-in-out"
           target="_blank"
         >
