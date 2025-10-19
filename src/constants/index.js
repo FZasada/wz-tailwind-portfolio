@@ -161,4 +161,4 @@ export const WORK = [
   ];
 
 
-export const EMAIL = "contact@wiktoriazemla.com"
+export const EMAIL = "contact@wiktoriazasada.com"
