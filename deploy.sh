@@ -69,17 +69,17 @@ echo -e "${BLUE}🌐 Deploying to GitHub Pages...${NC}"
 npm run deploy
 
 echo -e "${GREEN}🎉 Deployment completed successfully!${NC}"
-echo -e "${GREEN}🌍 Your site will be available at: https://wiktoriazemla.com${NC}"
+echo -e "${GREEN}🌍 Your site will be available at: https://wiktoriazasada.com${NC}"
 
 # Optional: Open the site in browser
 read -p "Open the site in browser? (y/n): " -n 1 -r
 echo
 if [[ $REPLY =~ ^[Yy]$ ]]; then
     if command -v open > /dev/null; then
-        open "https://wiktoriazemla.com"
+        open "https://wiktoriazasada.com"
     elif command -v xdg-open > /dev/null; then
-        xdg-open "https://wiktoriazemla.com"
+        xdg-open "https://wiktoriazasada.com"
     else
-        echo "Please open https://wiktoriazemla.com manually"
+        echo "Please open https://wiktoriazasada.com manually"
     fi
 fi

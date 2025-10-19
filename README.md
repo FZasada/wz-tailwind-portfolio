@@ -4,7 +4,7 @@ A modern, responsive portfolio website built with **React**, **Vite**, and **Tai
 
 ## 🌍 Live Site
 
-**🔗 [wiktoriazemla.com](https://wiktoriazemla.com)**
+**🔗 [wiktoriazasada.com](https://wiktoriazasada.com)**
 
 ## 🚀 Quick Deployment Guide
 
