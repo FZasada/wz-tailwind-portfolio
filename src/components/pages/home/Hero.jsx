@@ -21,7 +21,7 @@ const Hero = () => {
           animate="visible"
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="flex pb-4 lg:mb-35">
-        <div className="flex flex-wrap items-center gap-12 lg:gap-0">
+        <div className="flex flex-wrap items-center gap-12">
           <div className="w-full lg:w-1/2">
             <div className="flex flex-col lg:items-start">
               <h4 className="text-[16px] lg:text-[18px] mb-[6px]">
