@@ -17,18 +17,7 @@ const FavTools = ({ tools }) => {
     
             <div className="my-8 flex flex-wrap gap-[36px] justify-center">
                 {tools.map((tool, index) => (
-                    <motion.div
-                        initial={{ y: 0, opacity: 0 }}
-                        whileInView={{ y: 0, opacity: 1 }}
-                        transition={{
-                            ease: "easeInOut",
-                            duration: 0.5,
-                            delay: index * 0.1
-                        }}
-                        viewport={{ once: true }}
-                        key={index}>
-                        <ToolContainer tool={tool} />
-                    </motion.div>
+                    <ToolContainer key={index} tool={tool} />
                 ))}
             </div>
         </motion.div>

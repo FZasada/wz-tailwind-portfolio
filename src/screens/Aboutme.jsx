@@ -19,6 +19,7 @@ import Timeline from "../components/elements/Timeline.jsx";
 function Aboutme() {
     const hiMsg = ["Cześć", "Hoi", "Hello", "Moin"]
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [shadowDistance, setShadowDistance] = useState(16);
     const downloadHook = usePasswordProtectedDownload('0203');
 
     useEffect(() => {
@@ -92,54 +93,10 @@ function Aboutme() {
         >
         <h2 className='my-8 text-center text-[48px] font-bold'>Languages I speak</h2>
         <div className='flex flex-col lg:flex-row justify-center items-center gap-[96px] w-full mt-8'>
-            <motion.span
-                initial={{ y: 0, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{
-                    ease: "easeInOut",
-                    duration: 0.5,
-                    delay: 0.1
-                }}
-                viewport={{ once: true }}
-            >
-                <LanguageComponent iconSrc={polish} language='Polish' level='Native' />
-            </motion.span>
-            <motion.span
-                initial={{ y: 0, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{
-                    ease: "easeInOut",
-                    duration: 0.5,
-                    delay: 0.2
-                }}
-                viewport={{ once: true }}
-            >
-                <LanguageComponent iconSrc={dutch} language='Dutch' level='Fluent' />
-            </motion.span>
-            <motion.span
-                initial={{ y: 0, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{
-                    ease: "easeInOut",
-                    duration: 0.5,
-                    delay: 0.3
-                }}
-                viewport={{ once: true }}
-            >
-                <LanguageComponent iconSrc={english} language='English' level='Fluent' />
-            </motion.span>
-            <motion.span
-                initial={{ y: 0, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{
-                    ease: "easeInOut",
-                    duration: 0.5,
-                    delay: 0.4
-                }}
-                viewport={{ once: true }}
-            >
-                <LanguageComponent iconSrc={german} language='German' level='Intermediate' />
-            </motion.span>
+          <LanguageComponent iconSrc={polish} language='Polish' level='Native' />
+          <LanguageComponent iconSrc={dutch} language='Dutch' level='Fluent' />
+          <LanguageComponent iconSrc={english} language='English' level='Fluent' />
+          <LanguageComponent iconSrc={german} language='German' level='Intermediate' />
         </div>
       </motion.section>
 
@@ -163,11 +120,29 @@ function Aboutme() {
                 {ABOUTMEFREETIME}
             </p>
           </div>
-          <img
+          <motion.img
             src={withJackie}
             alt="me"
-            width= "443"
-            className='shadow-primary shadow-[-16px_-16px_0px_0px]' // 42 when scroll
+            width="443"
+            className='shadow-primary'
+            initial={{ 
+              x: 0,
+              y: 0,
+              boxShadow: 'var(--tw-shadow-color) -12px -12px 0px 0px'
+            }}
+            whileInView={{ 
+              x: 14,
+              y: 14,
+              boxShadow: 'var(--tw-shadow-color) -30px -30px 0px 0px'
+            }}
+            transition={{ 
+              duration: 0.7,
+              ease: "easeInOut"
+            }}
+            viewport={{ 
+              once: true, 
+              amount: 0.5 
+            }}
           />
         </div>
         <div id="about-3-right-border"/>
