@@ -42,7 +42,7 @@ const Navbar = () => {
       <nav className="items-center pt-4 px-6 py-4 sm:px-0 mb-[70px] max-w-screen-xl flex flex-wrap gap-12 justify-between mx-auto fixed top-0 left-0 right-0 z-50 bg-white md:relative">
       <div className="flex flex-shrink-0 items-center">
         <NavLink to="/">
-          <img className="lg:w-[56px] lg:h-[46px] h-[30px]" src={logo} alt="FZ" />
+          <img className="lg:w-[50px] lg:h-[40px] h-[40px]" src={logo} alt="FZ" />
         </NavLink>
       </div>
 
