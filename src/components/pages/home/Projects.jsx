@@ -12,7 +12,7 @@ const Projects = ({ title, projects }) => {
                 ease: "easeInOut",
                 duration: 0.6,
             }}
-        viewport={{ once: true, amount: 0.5 }}
+            viewport={{ once: true, amount: 0.2 }}
             className='flex flex-col pb-4 items-center'>
             {title && <h2
                 className='my-8 text-center text-[48px] font-bold'>{ title }</h2>
