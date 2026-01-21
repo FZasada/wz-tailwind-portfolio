@@ -1,0 +1,141 @@
+name: PR Checks
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+
+jobs:
+  pr-validation:
+    name: PR Validation
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.draft == false
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Full history for better diff analysis
+
+      - name: Check PR title
+        run: |
+          PR_TITLE="${{ github.event.pull_request.title }}"
+          
+          # Check if PR title is not empty
+          if [ -z "$PR_TITLE" ]; then
+            echo "❌ PR title cannot be empty"
+            exit 1
+          fi
+          
+          # Check minimum length
+          if [ ${#PR_TITLE} -lt 10 ]; then
+            echo "❌ PR title too short (minimum 10 characters)"
+            exit 1
+          fi
+          
+          echo "✅ PR title is valid"
+
+      - name: Check changed files
+        run: |
+          echo "📝 Files changed in this PR:"
+          git diff --name-only origin/${{ github.base_ref }}...HEAD
+          
+          # Count changed files
+          CHANGED_FILES=$(git diff --name-only origin/${{ github.base_ref }}...HEAD | wc -l)
+          echo "Total files changed: $CHANGED_FILES"
+          
+          # Warn if too many files changed
+          if [ "$CHANGED_FILES" -gt 50 ]; then
+            echo "⚠️ Warning: Large PR with $CHANGED_FILES files changed"
+            echo "Consider splitting into smaller PRs for easier review"
+          fi
+
+      - name: Check for sensitive data
+        run: |
+          echo "🔍 Scanning for sensitive data patterns..."
+          
+          # Check for potential secrets/keys
+          if git diff origin/${{ github.base_ref }}...HEAD | grep -iE '(password|secret|api[_-]?key|private[_-]?key|token).*=.*["\047][^"\047]{8,}'; then
+            echo "⚠️ Warning: Potential sensitive data detected in changes"
+            echo "Please review the changes to ensure no secrets are committed"
+          fi
+          
+          echo "✅ Sensitive data scan complete"
+
+      - name: Check for console.log statements
+        run: |
+          echo "🔍 Checking for debug statements..."
+          
+          # Find new console.log statements
+          NEW_CONSOLE_LOGS=$(git diff origin/${{ github.base_ref }}...HEAD | grep -E '^\+.*console\.(log|debug|info)' || true)
+          
+          if [ ! -z "$NEW_CONSOLE_LOGS" ]; then
+            echo "⚠️ Warning: New console.log statements detected:"
+            echo "$NEW_CONSOLE_LOGS"
+            echo "Consider removing debug statements before merging"
+          else
+            echo "✅ No debug statements found"
+          fi
+
+  dependency-check:
+    name: Dependency Security Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run npm audit
+        run: |
+          echo "🔒 Running security audit..."
+          npm audit --audit-level=moderate || {
+            echo "⚠️ Security vulnerabilities found"
+            echo "Run 'npm audit fix' locally to resolve"
+            exit 1
+          }
+          echo "✅ No security vulnerabilities found"
+
+  code-quality:
+    name: Code Quality Metrics
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check code complexity
+        run: |
+          echo "📊 Analyzing code complexity..."
+          
+          # Find large files (>500 lines)
+          LARGE_FILES=$(find src -name "*.jsx" -o -name "*.js" | while read file; do
+            LINES=$(wc -l < "$file")
+            if [ "$LINES" -gt 500 ]; then
+              echo "$file: $LINES lines"
+            fi
+          done)
+          
+          if [ ! -z "$LARGE_FILES" ]; then
+            echo "⚠️ Large files detected (>500 lines):"
+            echo "$LARGE_FILES"
+            echo "Consider refactoring for better maintainability"
+          else
+            echo "✅ No large files detected"
+          fi
+
+      - name: Check duplicate code
+        run: |
+          echo "🔍 Checking for potential code duplication..."
+          
+          # This is a simple check - in production, consider using tools like jscpd
+          # For now, we'll check for repeated function names
+          DUPLICATE_FUNCTIONS=$(find src -name "*.jsx" -exec grep -h "^function \|^const .* = (" {} \; | sort | uniq -d)
+          
+          if [ ! -z "$DUPLICATE_FUNCTIONS" ]; then
+            echo "ℹ️ Potential duplicate function names found"
+          else
+            echo "✅ No obvious duplicates detected"
+          fi

@@ -1,0 +1,419 @@
+name: CI Pipeline
+
+on:
+  pull_request:
+    branches: [ master ]
+  push:
+    branches: [ master ]
+
+jobs:
+  lint:
+    name: Lint Code
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run ESLint
+        run: npm run lint
+
+  validate-content:
+    name: Validate Content Files
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate JSON content
+        run: npm run content:validate
+
+  build:
+    name: Build Application
+    runs-on: ubuntu-latest
+    needs: [lint, validate-content]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build project
+        run: npm run build
+
+      - name: Check build artifacts
+        run: |
+          if [ ! -d "dist" ]; then
+            echo "❌ Build failed: dist directory not found"
+            exit 1
+          fi
+          if [ ! -f "dist/index.html" ]; then
+            echo "❌ Build failed: index.html not found"
+            exit 1
+          fi
+          echo "✅ Build artifacts verified"
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/
+          retention-days: 7
+
+  smoke-tests:
+    name: Smoke Tests
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist/
+
+      - name: Check critical files exist
+        run: |
+          echo "🔍 Verifying critical files..."
+          
+          # Check HTML files
+          test -f dist/index.html || { echo "❌ index.html missing"; exit 1; }
+          test -f dist/404.html || { echo "❌ 404.html missing"; exit 1; }
+          
+          # Check for JS bundles
+          find dist/assets -name "*.js" | grep -q . || { echo "❌ No JS bundles found"; exit 1; }
+          
+          # Check for CSS bundles
+          find dist/assets -name "*.css" | grep -q . || { echo "❌ No CSS bundles found"; exit 1; }
+          
+          echo "✅ All critical files present"
+
+      - name: Verify HTML structure
+        run: |
+          echo "🔍 Checking HTML structure..."
+          
+          # Check index.html has essential elements
+          grep -q '<div id="root"' dist/index.html || { echo "❌ Root div missing"; exit 1; }
+          grep -q '<script' dist/index.html || { echo "❌ Script tag missing"; exit 1; }
+          
+          echo "✅ HTML structure valid"
+
+      - name: Check asset references
+        run: |
+          echo "🔍 Verifying asset references..."
+          
+          # Extract all asset references from index.html
+          ASSETS=$(grep -oP '(src|href)="[^"]*"' dist/index.html | grep -oP '"/[^"]*"' | tr -d '"')
+          
+          for asset in $ASSETS; do
+            if [[ $asset == /assets/* ]]; then
+              ASSET_PATH="dist${asset}"
+              if [ ! -f "$ASSET_PATH" ]; then
+                echo "❌ Referenced asset missing: $asset"
+                exit 1
+              fi
+            fi
+          done
+          
+          echo "✅ All referenced assets exist"
+
+      - name: Validate JSON data files in dist
+        run: |
+          echo "🔍 Checking if JSON files are valid..."
+          
+          # Find all JSON files in dist
+          find dist -name "*.json" -type f | while read file; do
+            if ! jq empty "$file" 2>/dev/null; then
+              echo "❌ Invalid JSON: $file"
+              exit 1
+            fi
+          done
+          
+          echo "✅ All JSON files valid"
+
+      - name: Check bundle sizes
+        run: |
+          echo "📊 Checking bundle sizes..."
+          
+          # Get main JS bundle size (largest JS file)
+          MAX_JS_SIZE=1048576  # 1MB in bytes
+          LARGEST_JS=$(find dist/assets -name "*.js" -exec ls -l {} \; | sort -k5 -rn | head -1 | awk '{print $5}')
+          
+          if [ "$LARGEST_JS" -gt "$MAX_JS_SIZE" ]; then
+            echo "⚠️ Warning: Largest JS bundle is $(($LARGEST_JS / 1024))KB (exceeds 1MB)"
+          else
+            echo "✅ JS bundle size OK: $(($LARGEST_JS / 1024))KB"
+          fi
+          
+          # Get CSS bundle size
+          MAX_CSS_SIZE=524288  # 512KB in bytes
+          LARGEST_CSS=$(find dist/assets -name "*.css" -exec ls -l {} \; | sort -k5 -rn | head -1 | awk '{print $5}')
+          
+          if [ "$LARGEST_CSS" -gt "$MAX_CSS_SIZE" ]; then
+            echo "⚠️ Warning: Largest CSS bundle is $(($LARGEST_CSS / 1024))KB (exceeds 512KB)"
+          else
+            echo "✅ CSS bundle size OK: $(($LARGEST_CSS / 1024))KB"
+          fi
+
+  preview-server:
+    name: Preview Server & Component Tests
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist/
+
+      - name: Start preview server
+        run: |
+          npm run preview &
+          PREVIEW_PID=$!
+          echo $PREVIEW_PID > preview.pid
+          echo "Preview server started with PID: $PREVIEW_PID"
+          
+          # Wait for server to start
+          echo "Waiting for server to start..."
+          for i in {1..30}; do
+            if curl -s http://localhost:4173 > /dev/null; then
+              echo "✅ Server is responding"
+              break
+            fi
+            if [ $i -eq 30 ]; then
+              echo "❌ Server failed to start"
+              kill $PREVIEW_PID 2>/dev/null || true
+              exit 1
+            fi
+            sleep 1
+          done
+
+      - name: Test homepage accessibility
+        run: |
+          echo "🌐 Testing homepage..."
+          
+          # Get homepage content
+          HOMEPAGE=$(curl -s http://localhost:4173)
+          
+          # Check HTTP status
+          HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:4173)
+          if [ "$HTTP_CODE" != "200" ]; then
+            echo "❌ Homepage returned HTTP $HTTP_CODE"
+            exit 1
+          fi
+          echo "✅ Homepage is accessible (HTTP 200)"
+          
+          # Check page title
+          if echo "$HOMEPAGE" | grep -q '<title>.*Wiktoria Zasada.*</title>'; then
+            echo "✅ Page title found"
+          else
+            echo "❌ Page title missing or incorrect"
+            exit 1
+          fi
+          
+          # Check root div
+          if echo "$HOMEPAGE" | grep -q '<div id="root"'; then
+            echo "✅ Root div present"
+          else
+            echo "❌ Root div missing"
+            exit 1
+          fi
+          
+          # Check critical meta tags
+          if echo "$HOMEPAGE" | grep -q '<meta.*viewport'; then
+            echo "✅ Viewport meta tag present"
+          else
+            echo "⚠️ Warning: Viewport meta tag missing"
+          fi
+
+      - name: Test critical components load
+        run: |
+          echo "🧩 Testing critical components..."
+          
+          HOMEPAGE=$(curl -s http://localhost:4173)
+          
+          # Wait a bit for React to hydrate (in real scenario)
+          sleep 2
+          
+          # Re-fetch to check if SPA loaded
+          HOMEPAGE_LOADED=$(curl -s http://localhost:4173)
+          
+          # Check for main app container
+          if echo "$HOMEPAGE_LOADED" | grep -q 'id="root"'; then
+            echo "✅ App container present"
+          else
+            echo "❌ App container missing"
+            exit 1
+          fi
+          
+          # Verify JavaScript bundle is linked
+          if echo "$HOMEPAGE_LOADED" | grep -qE '<script.*src=.*\.js'; then
+            echo "✅ JavaScript bundle linked"
+          else
+            echo "❌ JavaScript bundle missing"
+            exit 1
+          fi
+          
+          # Verify CSS bundle is linked
+          if echo "$HOMEPAGE_LOADED" | grep -qE '<link.*href=.*\.css'; then
+            echo "✅ CSS bundle linked"
+          else
+            echo "❌ CSS bundle missing"
+            exit 1
+          fi
+
+      - name: Test routes accessibility
+        run: |
+          echo "🛣️ Testing application routes..."
+          
+          # Test About Me route
+          ABOUT_HTTP=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:4173/about)
+          if [ "$ABOUT_HTTP" == "200" ]; then
+            echo "✅ /about route accessible"
+          else
+            echo "⚠️ /about route returned HTTP $ABOUT_HTTP (expected for SPA)"
+          fi
+          
+          # Test Projects route
+          PROJECTS_HTTP=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:4173/projects)
+          if [ "$PROJECTS_HTTP" == "200" ]; then
+            echo "✅ /projects route accessible"
+          else
+            echo "⚠️ /projects route returned HTTP $PROJECTS_HTTP (expected for SPA)"
+          fi
+          
+          # Test 404 page
+          if [ -f "dist/404.html" ]; then
+            echo "✅ 404.html exists for GitHub Pages routing"
+          fi
+
+      - name: Test static assets
+        run: |
+          echo "🖼️ Testing static assets..."
+          
+          # Test if favicon exists (common asset)
+          FAVICON_HTTP=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:4173/favicon.ico || echo "404")
+          if [ "$FAVICON_HTTP" == "200" ]; then
+            echo "✅ Favicon accessible"
+          else
+            echo "ℹ️ No favicon found (optional)"
+          fi
+          
+          # Check if assets directory is accessible
+          ASSETS_CHECK=$(curl -s http://localhost:4173/assets/ -o /dev/null -w "%{http_code}" || echo "000")
+          if [ "$ASSETS_CHECK" == "403" ] || [ "$ASSETS_CHECK" == "404" ]; then
+            echo "✅ Assets directory properly configured (not browsable)"
+          fi
+
+      - name: Performance check
+        run: |
+          echo "⚡ Running basic performance checks..."
+          
+          # Measure response time
+          RESPONSE_TIME=$(curl -o /dev/null -s -w '%{time_total}\n' http://localhost:4173)
+          echo "Response time: ${RESPONSE_TIME}s"
+          
+          # Check if response time is acceptable (< 2 seconds)
+          if (( $(echo "$RESPONSE_TIME < 2.0" | bc -l) )); then
+            echo "✅ Response time acceptable"
+          else
+            echo "⚠️ Warning: Response time slow (${RESPONSE_TIME}s)"
+          fi
+          
+          # Check page size
+          PAGE_SIZE=$(curl -s http://localhost:4173 | wc -c)
+          echo "Homepage size: $((PAGE_SIZE / 1024))KB"
+          
+          if [ "$PAGE_SIZE" -lt 102400 ]; then  # 100KB
+            echo "✅ Homepage size optimal"
+          elif [ "$PAGE_SIZE" -lt 512000 ]; then  # 500KB
+            echo "✅ Homepage size acceptable"
+          else
+            echo "⚠️ Warning: Homepage size large ($((PAGE_SIZE / 1024))KB)"
+          fi
+
+      - name: Cleanup
+        if: always()
+        run: |
+          if [ -f preview.pid ]; then
+            PREVIEW_PID=$(cat preview.pid)
+            kill $PREVIEW_PID 2>/dev/null || true
+            echo "✅ Preview server stopped"
+          fi
+
+  quality-gate:
+    name: Quality Gate
+    runs-on: ubuntu-latest
+    needs: [lint, validate-content, build, smoke-tests, preview-server]
+    if: always()
+    steps:
+      - name: Check all jobs status
+        run: |
+          if [ "${{ needs.lint.result }}" != "success" ]; then
+            echo "❌ Linting failed"
+            exit 1
+          fi
+          if [ "${{ needs.validate-content.result }}" != "success" ]; then
+            echo "❌ Content validation failed"
+            exit 1
+          fi
+          if [ "${{ needs.build.result }}" != "success" ]; then
+            echo "❌ Build failed"
+            exit 1
+          fi
+          if [ "${{ needs.smoke-tests.result }}" != "success" ]; then
+            echo "❌ Smoke tests failed"
+            exit 1
+          fi
+          if [ "${{ needs.preview-server.result }}" != "success" ]; then
+            echo "❌ Preview server test failed"
+            exit 1
+          fi
+          echo "✅ All quality checks passed!"
