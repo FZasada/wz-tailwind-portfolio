@@ -4,9 +4,12 @@ import { motion } from 'framer-motion'; // Corrected import
 import ContactButton from '../../elements/ContactButton';
 import usePasswordProtectedDownload from '../../../hooks/usePasswordProtectedDownload';
 import PasswordDialog from '../../elements/PasswordDialog';
+import LoadingSpinner from '../../elements/LoadingSpinner';
+import useImageLoader from '../../../hooks/useImageLoader';
 
 const Hero = () => {
   const downloadHook = usePasswordProtectedDownload('0203');
+  const heroImageLoader = useImageLoader(hero);
 
   const myAnimation = {
     hidden: { opacity: 0, y: 10 },
@@ -40,12 +43,18 @@ const Hero = () => {
               </div>
             </div>
           </div>
-          <img
-            src={hero}
-            alt="Wiktoria Zasada"
-            className="max-w-full"
-            style={{ width: '477px', height: 'auto' }}
-          />
+          <div className="relative flex items-center justify-center" style={{ width: '477px', height: '477px' }}>
+            {heroImageLoader.loading ? (
+              <LoadingSpinner size="xl" variant="primary" />
+            ) : (
+              <img
+                src={hero}
+                alt="Wiktoria Zasada"
+                className={`max-w-full ${heroImageLoader.error ? 'opacity-50' : ''}`}
+                style={{ width: '477px', height: 'auto' }}
+              />
+            )}
+          </div>
         </div>
       </motion.div>
 

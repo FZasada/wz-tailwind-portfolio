@@ -6,6 +6,8 @@ import LanguageComponent from '../components/elements/LanguageComponent';
 import Button from '../components/elements/Button';
 import usePasswordProtectedDownload from '../hooks/usePasswordProtectedDownload';
 import PasswordDialog from '../components/elements/PasswordDialog';
+import LoadingSpinner from '../components/elements/LoadingSpinner';
+import useImageLoader from '../hooks/useImageLoader';
 
 import aboutme_1 from '../assets/about_me/images/hero.png'
 import withJackie from '../assets/about_me/images/dog_pic.png'
@@ -20,6 +22,8 @@ function Aboutme() {
     const hiMsg = ["Cześć", "Hoi", "Hello", "Moin"]
     const [currentIndex, setCurrentIndex] = useState(0);
     const downloadHook = usePasswordProtectedDownload('0203');
+    const heroImageLoader = useImageLoader(aboutme_1);
+    const dogImageLoader = useImageLoader(withJackie);
 
     useEffect(() => {
         window.scrollTo({
@@ -75,7 +79,13 @@ function Aboutme() {
                   <Button  text={"LinkedIn profile"} variant="secondary" onClick={() => window.open("https://www.linkedin.com/in/wiktoria-zasada-00a20b252/", "_blank")} />
                 </div>
               </div>
-              <img src={aboutme_1} alt='me' width='515'/>
+              {heroImageLoader.loading ? (
+                <div className="w-[515px] h-[515px] flex items-center justify-center">
+                  <LoadingSpinner size="xl" variant="primary" />
+                </div>
+              ) : (
+                <img src={aboutme_1} alt='me' width='515' className={heroImageLoader.error ? 'opacity-50' : ''} />
+              )}
             </div>
         </motion.section>
 
@@ -119,30 +129,36 @@ function Aboutme() {
                 {ABOUTMEFREETIME}
             </p>
           </div>
-          <motion.img
-            src={withJackie}
-            alt="me"
-            width="443"
-            className='shadow-primary'
-            initial={{ 
-              x: 0,
-              y: 0,
-              boxShadow: 'var(--tw-shadow-color) -12px -12px 0px 0px'
-            }}
-            whileInView={{ 
-              x: 14,
-              y: 14,
-              boxShadow: 'var(--tw-shadow-color) -30px -30px 0px 0px'
-            }}
-            transition={{ 
-              duration: 0.7,
-              ease: "easeInOut"
-            }}
-            viewport={{ 
-              once: true, 
-              amount: 0.5 
-            }}
-          />
+          {dogImageLoader.loading ? (
+            <div className="w-[443px] h-[443px] flex items-center justify-center">
+              <LoadingSpinner size="xl" variant="primary" />
+            </div>
+          ) : (
+            <motion.img
+              src={withJackie}
+              alt="me"
+              width="443"
+              className={`shadow-primary ${dogImageLoader.error ? 'opacity-50' : ''}`}
+              initial={{ 
+                x: 0,
+                y: 0,
+                boxShadow: 'var(--tw-shadow-color) -12px -12px 0px 0px'
+              }}
+              whileInView={{ 
+                x: 14,
+                y: 14,
+                boxShadow: 'var(--tw-shadow-color) -30px -30px 0px 0px'
+              }}
+              transition={{ 
+                duration: 0.7,
+                ease: "easeInOut"
+              }}
+              viewport={{ 
+                once: true, 
+                amount: 0.5 
+              }}
+            />
+          )}
         </div>
         <div id="about-3-right-border"/>
       {/*</motion.section>*/}

@@ -1,16 +1,25 @@
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types';
+import LoadingSpinner from './LoadingSpinner';
+import useImageLoader from '../../hooks/useImageLoader';
 
 const ProjectCard = ({ project }) => {
+    const imageLoader = useImageLoader(project.logo);
     return (
         <Link to={`/project/${project.id}`} className='flex flex-col gap-[24px]'>
-            <div className='rounded-xl w-[344px] h-[350px] px-[32px] group hover:cursor-pointer content-center' style={{backgroundColor: project.color}}>
-                <img 
-                    className='transition-transform duration-300 ease-in-out group-hover:scale-[105%]' 
-                    src={project.logo} 
-                    alt="project" 
-                    id="project-img" 
-                />
+            <div className='rounded-xl w-[344px] h-[350px] px-[32px] group hover:cursor-pointer content-center relative' style={{backgroundColor: project.color}}>
+                {imageLoader.loading ? (
+                    <div className="absolute inset-0 flex items-center justify-center">
+                        <LoadingSpinner size="lg" variant="white" />
+                    </div>
+                ) : (
+                    <img 
+                        className={`transition-transform duration-300 ease-in-out group-hover:scale-[105%] ${imageLoader.error ? 'opacity-50' : ''}`}
+                        src={project.logo} 
+                        alt="project" 
+                        id="project-img" 
+                    />
+                )}
             </div>
             <div className='flex flex-col gap-[4px]'>
                 <h5 className='m-0 p-0 text-primary font-semibold text-[18px]'>{project.tags.join(' / ')}</h5>
