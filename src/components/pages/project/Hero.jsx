@@ -1,7 +1,11 @@
 import { motion } from "motion/react";
 import PropTypes from 'prop-types';
+import LoadingSpinner from '../../elements/LoadingSpinner';
+import useImageLoader from '../../../hooks/useImageLoader';
 
 const Hero = ({ project }) => {
+  const imageLoader = useImageLoader(project?.img);
+
   if (!project) {
     return <div>Project not found</div>;
   }
@@ -25,10 +29,16 @@ const Hero = ({ project }) => {
         </h1>
         <p>{project.shortDescription}</p>
       </div>
-      <div className="w-full mt-16">
-        <img src={project.img}
-          alt="Banner"
-        />
+      <div className="w-full mt-16 relative min-h-[400px] flex items-center justify-center">
+        {imageLoader.loading ? (
+          <LoadingSpinner size="xl" variant="primary" />
+        ) : (
+          <img 
+            src={project.img}
+            alt="Banner"
+            className={imageLoader.error ? 'opacity-50' : ''}
+          />
+        )}
       </div>
     </motion.div>
   );
