@@ -19,7 +19,6 @@ import Timeline from "../components/elements/Timeline.jsx";
 function Aboutme() {
     const hiMsg = ["Cześć", "Hoi", "Hello", "Moin"]
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [shadowDistance, setShadowDistance] = useState(16);
     const downloadHook = usePasswordProtectedDownload('0203');
 
     useEffect(() => {

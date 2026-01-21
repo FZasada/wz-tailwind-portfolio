@@ -129,7 +129,13 @@ export const TOOLS = [
 
 export const WORK = [
     {
-      date: "2022 - Present",
+        date: "2025 - Present",
+        title: "UX/UI Designer",
+        company: "Websites21",
+        description: "As a UX/UI Designer at Websites21, I am responsible for creating user-friendly and visually appealing digital experiences. My role involves designing intuitive interfaces for websites and applications, ensuring that they are both functional and engaging for users. I am focusing on usability and aesthetics to enhance overall user satisfaction."
+    },
+    {
+      date: "2022 - 2024",
       title: "Content Designer",
       company: "E-learning Platform For Kids (EFK), Klare Koek, Leeuwarden",
       description:
