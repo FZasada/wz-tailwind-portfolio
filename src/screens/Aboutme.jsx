@@ -60,7 +60,7 @@ function Aboutme() {
                         justifyContent: 'flex-start'
                       }}
                     >
-                      <h1 className="mb-[12px] text-[72px] font-bold">
+                      <h1 className="mb-[12px] text-[44px] lg:text-[72px] font-bold">
                         {hiMsg[currentIndex]}<span className='text-primary'>!</span>
                       </h1>
                     </div>
