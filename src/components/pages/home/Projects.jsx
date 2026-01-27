@@ -17,7 +17,7 @@ const Projects = ({ title, projects }) => {
             {title && <h2
                 className='my-8 text-center text-4xl lg:text-[48px] font-bold'>{ title }</h2>
             }
-            <div className="flex lg:flex-row flex-col gap-[48px]">
+            <div className="flex lg:flex-row flex-col gap-[48px] mt-12">
                 {projects.map((project, index) => (
                     <div key={index}>
                         <ProjectCard project={project} />
