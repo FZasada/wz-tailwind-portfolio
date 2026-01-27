@@ -15,7 +15,7 @@ const Projects = ({ title, projects }) => {
             viewport={{ once: true, amount: 0.2 }}
             className='flex flex-col pb-4 items-center'>
             {title && <h2
-                className='my-8 text-center text-[48px] font-bold'>{ title }</h2>
+                className='my-8 text-center text-4xl lg:text-[48px] font-bold'>{ title }</h2>
             }
             <div className="flex lg:flex-row flex-col gap-[48px]">
                 {projects.map((project, index) => (

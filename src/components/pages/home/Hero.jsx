@@ -30,10 +30,10 @@ const Hero = () => {
               <h4 className="text-sm lg:text-[18px] mb-2 lg:mb-[6px]">
                 Hi there,
               </h4>
-              <h1 className="mb-3 lg:mb-[12px] text-3xl lg:text-[72px] font-bold leading-tight">
+              <h1 className="mb-3 lg:mb-[12px] text-4xl lg:text-[72px] font-bold leading-tight">
                 I&apos;m Wiktoria
               </h1>
-              <span className="pb-8 lg:pb-16 text-base lg:text-[24px] font-medium block">
+              <span className="pb-8 lg:pb-16 text-lg lg:text-[24px] font-medium block">
                 I&apos;m a passionate <span className="text-primary">UX/UI Designer</span> who crafts engaging and intuitive digital experiences.
               </span>
               {/* No need for extra motion.div wrapper here */}

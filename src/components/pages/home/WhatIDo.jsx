@@ -50,7 +50,7 @@ const WhatIDo = () => {
                 </div>
             </div>
             <div className="flex flex-col gap-12 w-full lg:w-1/2">
-                <h2 className="text-5xl font-bold"><span className="text-primary">What</span> do I do?</h2>
+                <h2 className="text-4xl lg:text-5xl font-bold"><span className="text-primary">What</span> do I do?</h2>
                 <p className="text-lg/9">{WHATDOIDO}</p>
             </div>
         </div>
